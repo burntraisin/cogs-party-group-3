@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=7 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="2_8vjq6"]
+[ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="3_2iydp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eupe2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n42xn"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Game" type="Node2D"]
 
@@ -17,13 +24,86 @@ offset_bottom = 677.0
 material = SubResource("CanvasItemMaterial_ree2q")
 position = Vector2(1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Pond"]
-position = Vector2(601, 337)
+[node name="Water" type="Sprite2D" parent="Pond"]
+position = Vector2(601, 338)
 scale = Vector2(1.35724, 1.32329)
 texture = ExtResource("1_o6fvn")
 
 [node name="Player" type="Node2D" parent="."]
 
-[node name="Avatar" type="Sprite2D" parent="Player"]
-position = Vector2(319, 66)
+[node name="Player1" type="Sprite2D" parent="Player"]
+position = Vector2(322, 65)
 texture = ExtResource("2_8vjq6")
+
+[node name="Player2" type="Sprite2D" parent="Player"]
+position = Vector2(322, 612)
+texture = ExtResource("2_8vjq6")
+
+[node name="Player3" type="Sprite2D" parent="Player"]
+position = Vector2(883, 65)
+texture = ExtResource("2_8vjq6")
+
+[node name="Player4" type="Sprite2D" parent="Player"]
+position = Vector2(883, 612)
+texture = ExtResource("2_8vjq6")
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="Player1" type="Control" parent="Stats"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 256.0
+offset_bottom = 338.5
+
+[node name="Name" type="RichTextLabel" parent="Stats/Player1"]
+offset_right = 254.0
+offset_bottom = 53.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center] Player 1 [/center]"
+scroll_active = false
+
+[node name="Score" type="RichTextLabel" parent="Stats/Player1"]
+layout_mode = 0
+offset_top = 308.0
+offset_right = 254.0
+offset_bottom = 337.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center] Score: 0 [/center]"
+scroll_active = false
+
+[node name="ProgessBar" type="Panel" parent="Stats/Player1"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 55.0
+offset_right = 130.0
+offset_bottom = 301.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eupe2")
+
+[node name="InnerProgressBar" type="Panel" parent="Stats/Player1"]
+offset_left = 76.0
+offset_top = 59.0
+offset_right = 125.0
+offset_bottom = 297.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="TextureRect" type="TextureRect" parent="Stats/Player1"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 275.0
+offset_right = 227.0
+offset_bottom = 326.0
+rotation = 7.86466
+texture = ExtResource("3_2iydp")
+expand_mode = 1
+
+[node name="Other" type="Control" parent="Stats"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 676.0
