@@ -72,7 +72,6 @@ text = "[center] Player 1 [/center]"
 scroll_active = false
 
 [node name="Score" type="RichTextLabel" parent="Stats/Player1"]
-layout_mode = 0
 offset_top = 308.0
 offset_right = 254.0
 offset_bottom = 337.0
@@ -113,3 +112,5 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1200.0
 offset_bottom = 676.0
+
+[connection signal="update_score" from="." to="Stats/Player1" method="_on_game_update_score"]
