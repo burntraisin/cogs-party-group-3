@@ -5,7 +5,9 @@ var plr_count;
 @onready var stats = get_node("Stats");
 @onready var players = get_node("Player");
 
-signal update_score(score) 
+signal add_score(id, score) 
+signal remove_score(id, score)
+signal start_fishing(id)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,5 +25,4 @@ func setup(player_data: Array[RefCounted]) -> void:
 		players["Player" + str(i+1)].modulate = player_data[i].color;
 		players["Player" + str(i+1)].show;
 		stats["Player" + str(i+1)].show;
-	
 	

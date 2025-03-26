@@ -1,5 +1,6 @@
 # this script controls the fishing game and updating each players stats
 extends Control
+var current_score = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,5 +11,22 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_game_update_score(score) -> void:
-	pass # Replace with function body.
+func _on_game_add_score(id, score) -> void:
+	if (str(id) != self.name.substr(6)):
+		return
+	
+	var new_score = current_score + score;
+	current_score = new_score;
+	self.Score.text = "[center] Score: " + str(current_score) + " [/center]"
+
+
+func _on_game_remove_score(id:Variant, score:Variant) -> void:
+	if (str(id) != self.name.substr(6)):
+		return
+	
+	var new_score = current_score - score;
+	current_score = new_score;
+	self.Score.text = "[center] Score: " + str(current_score) + " [/center]"
+
+func _on_game_start_fishing(id) -> void:
+	pass;

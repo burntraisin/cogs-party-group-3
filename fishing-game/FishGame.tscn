@@ -113,4 +113,6 @@ anchors_preset = 0
 offset_right = 1200.0
 offset_bottom = 676.0
 
-[connection signal="update_score" from="." to="Stats/Player1" method="_on_game_update_score"]
+[connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
+[connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]
+[connection signal="start_fishing" from="." to="Stats/Player1" method="_on_game_start_fishing"]
