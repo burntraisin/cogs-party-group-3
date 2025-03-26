@@ -30,7 +30,7 @@ const DUMMY_SAVE_DATA: Dictionary = {
 		},
 		{
 			"color": "#327ba8",
-			"points": 2,
+			"points": 0,
 		},
 		{
 			"color": "#7932a8",
@@ -39,24 +39,23 @@ const DUMMY_SAVE_DATA: Dictionary = {
 	],
 	"games": [
 		{
-			"name": "Test Game",
+			"name": "Fishing Game",
 			"results": [
 				{
-					"player": 0,
-					"points": 1
+					"player1": 0,
+					"points": 0
 				},
 				{
-					"player": 1,
-					"points": 3
+					"player2": 1,
+					"points": 0
 				},
-			]
-		},
-		{
-			"name": "Other Game",
-			"results": [
 				{
-					"player": 2,
-					"points": 1
+					"player3": 1,
+					"points": 0
+				},
+				{
+					"player4": 1,
+					"points": 0
 				},
 			]
 		},
