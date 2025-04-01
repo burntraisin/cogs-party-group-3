@@ -9,6 +9,7 @@ signal add_score(id, score)
 signal remove_score(id, score)
 signal start_fishing(id)
 
+
 var fish_scene = preload("res://fish.gd");
 
 # Called when the node enters the scene tree for the first time.
@@ -34,3 +35,7 @@ func setup(player_data: Array[RefCounted]) -> void:
 func _on_timer_timeout() -> void:
 	var fish = fish_scene.instantiate()
 	fish.position = Vector2(rand_range())
+
+
+func _on_player_1_done_fishing(id: Variant) -> void:
+	pass # Replace with function body.

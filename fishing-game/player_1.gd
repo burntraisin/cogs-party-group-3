@@ -1,7 +1,9 @@
 # this script controls the fishing game and updating each players stats
 extends Control
-extends Area2D
 var current_score = 0;
+const plr_id = 1
+
+signal done_fishing(id)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_game_add_score(id, score) -> void:
-	if (str(id) != self.name.substr(6)):
+	if (id != plr_id):
 		return
 	
 	var new_score = current_score + score;
@@ -22,7 +24,7 @@ func _on_game_add_score(id, score) -> void:
 
 
 func _on_game_remove_score(id:Variant, score:Variant) -> void:
-	if (str(id) != self.name.substr(6)):
+	if (id != plr_id):
 		return
 	
 	var new_score = current_score - score;

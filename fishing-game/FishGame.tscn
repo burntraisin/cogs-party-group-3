@@ -76,6 +76,7 @@ text = "[center] Player 1 [/center]"
 scroll_active = false
 
 [node name="Score" type="RichTextLabel" parent="Stats/Player1"]
+layout_mode = 0
 offset_top = 308.0
 offset_right = 254.0
 offset_bottom = 337.0
@@ -121,14 +122,14 @@ offset_bottom = 676.0
 script = ExtResource("6_gpo67")
 
 [node name="Sprite2D" type="Sprite2D" parent="Fish"]
+position = Vector2(60, -128)
 texture = ExtResource("2_8vjq6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
+position = Vector2(58, -130)
 shape = SubResource("RectangleShape2D_372sw")
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="done_fishing" from="Stats/Player1" to="." method="_on_player_1_done_fishing"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
-[connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]
-[connection signal="start_fishing" from="." to="Stats/Player1" method="_on_game_start_fishing"]
