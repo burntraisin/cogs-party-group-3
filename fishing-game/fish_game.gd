@@ -7,6 +7,8 @@ var plr_count;
 
 signal update_score(score) 
 
+var fish_scene = preload("res://fish.gd");
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hello");
@@ -25,3 +27,8 @@ func setup(player_data: Array[RefCounted]) -> void:
 		stats["Player" + str(i+1)].show;
 	
 	
+
+
+func _on_timer_timeout() -> void:
+	var fish = fish_scene.instantiate()
+	fish.position = Vector2(rand_range())
