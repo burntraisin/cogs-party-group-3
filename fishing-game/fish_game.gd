@@ -5,7 +5,9 @@ var plr_count;
 @onready var stats = get_node("Stats");
 @onready var players = get_node("Player");
 
-signal update_score(score) 
+signal add_score(id, score) 
+signal remove_score(id, score)
+signal start_fishing(id)
 
 var fish_scene = preload("res://fish.gd");
 
