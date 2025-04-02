@@ -10,7 +10,7 @@ signal remove_score(id, score)
 signal start_fishing(id)
 
 
-var fish_scene = preload("res://fish.gd");
+var fish_scene = preload("res://FishGame.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
