@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=14 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="3_2iydp"]
 [ext_resource type="Script" path="res://player_1.gd" id="3_pi2lh"]
 [ext_resource type="Script" path="res://fish.gd" id="6_gpo67"]
+[ext_resource type="Script" path="res://Fish(character).gd" id="7_kvuel"]
+[ext_resource type="Script" path="res://rare_fish.gd" id="8_xaiom"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
 
@@ -17,6 +19,9 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_372sw"]
 size = Vector2(124, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xy8p"]
+size = Vector2(126, 127)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_d3qom")
@@ -146,21 +151,39 @@ expand_mode = 1
 [node name="Other" type="Control" parent="Stats"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1200.0
-offset_bottom = 676.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 1201.0
+offset_bottom = 680.0
 
 [node name="Fish" type="Area2D" parent="."]
 script = ExtResource("6_gpo67")
 
 [node name="Sprite2D" type="Sprite2D" parent="Fish"]
-position = Vector2(60, -128)
+position = Vector2(133, -155)
 texture = ExtResource("2_8vjq6")
+script = ExtResource("7_kvuel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
-position = Vector2(58, -130)
+position = Vector2(134, -155)
 shape = SubResource("RectangleShape2D_372sw")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Rare fish" type="Area2D" parent="."]
+script = ExtResource("8_xaiom")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rare fish"]
+
+[node name="Icon" type="Sprite2D" parent="Rare fish/Sprite2D"]
+position = Vector2(-101, 208)
+texture = ExtResource("2_8vjq6")
+
+[node name="Node2D" type="Node2D" parent="Rare fish"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rare fish"]
+position = Vector2(-101, 207.5)
+shape = SubResource("RectangleShape2D_3xy8p")
 
 [connection signal="done_fishing" from="Stats/Player1" to="." method="_on_player_1_done_fishing"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
