@@ -102,6 +102,37 @@ offset_right = 125.0
 offset_bottom = 297.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
 
+[node name="CommonBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+offset_right = 49.0
+offset_bottom = 238.0
+scale = Vector2(1, 0.4)
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="RareBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
+modulate = Color(0.207087, 0.581242, 0.89822, 1)
+offset_top = 96.0
+offset_right = 49.0
+offset_bottom = 334.0
+scale = Vector2(1, 0.3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="EpicBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
+modulate = Color(0.76204, 0.361323, 0.865161, 1)
+offset_top = 167.7
+offset_right = 49.0
+offset_bottom = 405.7
+scale = Vector2(1, 0.2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="LegendaryBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
+modulate = Color(0.899351, 0.673612, 0.228508, 1)
+offset_top = 216.155
+offset_right = 49.0
+offset_bottom = 454.155
+scale = Vector2(1, 0.1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
 [node name="TextureRect" type="TextureRect" parent="Stats/Player1"]
 layout_mode = 0
 offset_left = 186.0
