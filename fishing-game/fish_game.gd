@@ -33,11 +33,8 @@ func setup(player_data: Array[RefCounted]) -> void:
 
 
 func _on_timer_timeout() -> void:
-	pass
-
-	# sorry had to comment this out when testing something else
-	# var fish = fish_scene.instantiate()
-	# fish.position = Vector2(rand_range())
+	var fish = fish_scene.instantiate()
+	fish.position = Vector2(rand_range())
 
 
 func _on_player_1_done_fishing(id: Variant) -> void:
