@@ -54,7 +54,7 @@ func controller() -> void:
 	stats.get_node("TimeRemaining").start();
 	timer_status = 1;
 
-	pass
+	
 
 func _on_time_remaining_timeout():
 	timer_status = 0;
