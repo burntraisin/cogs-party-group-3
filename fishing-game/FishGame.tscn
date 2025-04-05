@@ -9,8 +9,13 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eupe2"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7lhr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n42xn"]
 bg_color = Color(1, 1, 1, 1)
@@ -90,60 +95,8 @@ bbcode_enabled = true
 text = "[center] Score: 0 [/center]"
 scroll_active = false
 
-[node name="ProgessBar" type="Panel" parent="Stats/Player1"]
-layout_mode = 0
-offset_left = 105.0
-offset_top = 98.0
-offset_right = 164.0
-offset_bottom = 344.0
-scale = Vector2(1.6, 1.6)
-theme_override_styles/panel = SubResource("StyleBoxFlat_eupe2")
-
-[node name="InnerProgressBar" type="Panel" parent="Stats/Player1"]
-layout_mode = 0
-offset_left = 113.0
-offset_top = 104.0
-offset_right = 162.0
-offset_bottom = 342.0
-scale = Vector2(1.6, 1.6)
-theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
-
-[node name="CommonBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
-modulate = Color(0.625597, 0.625597, 0.625597, 1)
-layout_mode = 0
-offset_right = 49.0
-offset_bottom = 238.0
-scale = Vector2(1, 0.4)
-theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
-
-[node name="RareBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
-modulate = Color(0.207087, 0.581242, 0.89822, 1)
-layout_mode = 0
-offset_top = 95.2
-offset_right = 49.0
-offset_bottom = 333.2
-scale = Vector2(1, 0.3)
-theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
-
-[node name="EpicBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
-modulate = Color(0.76204, 0.361323, 0.865161, 1)
-layout_mode = 0
-offset_top = 166.6
-offset_right = 49.0
-offset_bottom = 404.6
-scale = Vector2(1, 0.2)
-theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
-
-[node name="LegendaryBar" type="Panel" parent="Stats/Player1/InnerProgressBar"]
-modulate = Color(0.899351, 0.673612, 0.228508, 1)
-layout_mode = 0
-offset_top = 214.2
-offset_right = 49.0
-offset_bottom = 452.2
-scale = Vector2(1, 0.1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
-
 [node name="ArrowFinal" type="TextureRect" parent="Stats/Player1"]
+layout_mode = 0
 offset_left = 294.0
 offset_top = 145.0
 offset_right = 389.0
@@ -162,11 +115,78 @@ rotation = 3.14159
 texture = ExtResource("3_2iydp")
 expand_mode = 1
 
-[node name="Other" type="Control" parent="Stats"]
+[node name="ProgressBar" type="PanelContainer" parent="Stats/Player1"]
+layout_mode = 1
+offset_left = 105.0
+offset_top = 98.0
+offset_right = 199.4
+offset_bottom = 491.6
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7lhr")
+
+[node name="RarityHolder" type="VBoxContainer" parent="Stats/Player1/ProgressBar"]
+layout_mode = 2
+
+[node name="CommonBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="RareBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+modulate = Color(0.207087, 0.581242, 0.89822, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="EpicBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+modulate = Color(0.76204, 0.361323, 0.865161, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="LegendaryBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+modulate = Color(0.899351, 0.673612, 0.228508, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Timer" type="Control" parent="Stats"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 660.0
+offset_right = 1260.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="Stats/Timer"]
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 50.0
+scale = Vector2(1, 1.00381)
+size_flags_horizontal = 3
+
+[node name="Name" type="RichTextLabel" parent="Stats/Timer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center] Time Remaining: 3:00 [/center]"
+scroll_active = false
+tab_size = 24
+
+[node name="TimeRemaining" type="Timer" parent="Stats"]
+wait_time = 181.0
+one_shot = true
 
 [node name="Fish" type="Area2D" parent="."]
 scale = Vector2(0.994771, 1)
@@ -180,7 +200,5 @@ texture = ExtResource("2_8vjq6")
 position = Vector2(134, -155)
 shape = SubResource("RectangleShape2D_372sw")
 
-[node name="Timer" type="Timer" parent="."]
-
 [connection signal="done_fishing" from="Stats/Player1" to="." method="_on_player_1_done_fishing"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Stats/TimeRemaining" to="." method="_on_time_remaining_timeout"]
