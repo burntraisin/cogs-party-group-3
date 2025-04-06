@@ -99,9 +99,9 @@ scroll_active = false
 [node name="ArrowStart" type="TextureRect" parent="Stats/Player1"]
 layout_mode = 0
 offset_left = 294.0
-offset_top = 524.0
+offset_top = 523.0
 offset_right = 389.0
-offset_bottom = 601.0
+offset_bottom = 600.0
 rotation = 3.14159
 texture = ExtResource("3_2iydp")
 expand_mode = 1

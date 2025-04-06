@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Fishing Game"
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

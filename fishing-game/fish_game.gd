@@ -16,7 +16,6 @@ signal start_fishing(id);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	controller();
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,7 +42,6 @@ func _on_player_1_done_fishing(id: Variant) -> void:
 
 func controller() -> void:
 	for n in range(10, -0, -1):	
-		print(n);
 		timer.text = "[center] " + str(n) + "... [/center]";
 		await get_tree().create_timer(1).timeout;
 
