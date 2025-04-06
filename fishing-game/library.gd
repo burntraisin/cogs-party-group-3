@@ -5,7 +5,7 @@ var fish_score = {
 };
 
 var fish_rarity = {
-	"Fish Name" = "Common",
+	"Common" = ["Fish Name"],
 };
 
 # Called when the node enters the scene tree for the first time.

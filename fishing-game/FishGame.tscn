@@ -119,28 +119,28 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_v7lhr")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CommonBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+[node name="Common" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
 modulate = Color(0.625597, 0.625597, 0.625597, 1)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
 
-[node name="RareBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+[node name="Rare" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
 modulate = Color(0.207087, 0.581242, 0.89822, 1)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
 
-[node name="EpicBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+[node name="Epic" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
 modulate = Color(0.76204, 0.361323, 0.865161, 1)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
 
-[node name="LegendaryBar" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
+[node name="Legendary" type="Panel" parent="Stats/Player1/ProgressBar/RarityHolder"]
 modulate = Color(0.899351, 0.673612, 0.228508, 1)
 layout_mode = 2
 size_flags_vertical = 3

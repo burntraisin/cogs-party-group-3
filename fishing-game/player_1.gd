@@ -4,7 +4,7 @@ extends Control
 var data = LibraryData.new();
 var current_score = 0;
 const plr_id = 1;
-var rarity = ["CommonBar", "RareBar", "EpicBar", "LegendaryBar"];
+var rarity = ["Common", "Rare", "Epic", "Legendary"];
 
 # 523, 144
 
@@ -44,7 +44,6 @@ func run_fishing() -> void:
 
 	for n in 4:
 		bar.move_child(bar.get_node(rarity[n]), n);
-
 	
 
 func _on_game_start_fishing(id) -> void:
