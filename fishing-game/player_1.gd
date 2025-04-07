@@ -20,7 +20,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if currently_fishing:
 		if !is_run_fishing_running:
-			print("Changed");
 			run_fishing();
 
 func _input(event: InputEvent) -> void:
@@ -33,7 +32,7 @@ func _on_game_add_score(id, score) -> void:
 	
 	var new_score = current_score + score;
 	current_score = new_score;
-	self.get_node("Score").text = "[center] Score: " + str(current_score) + " [/center]"
+	self.get_node("Score").text = "    Score: " + str(current_score)
 
 func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	if (id != plr_id):
@@ -41,13 +40,14 @@ func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	
 	var new_score = current_score - score;
 	current_score = new_score;
-	self.get_node("Score").text = "[center] Score: " + str(current_score) + " [/center]"
+	self.get_node("Score").text = "    Score: " + str(current_score)
 
 func run_fishing() -> void:
 	is_run_fishing_running = true;
 	var texture = self.get_node("ArrowStart");
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
+	print(bar.get_node("Common").global_position.y);
 
 	randomize();
 	rarity.shuffle();
@@ -71,8 +71,13 @@ func run_fishing() -> void:
 			if texture_position.global_position.y < (n.global_position.y + n.size.y):
 				selected_rarity = n.name;
 	if selected_rarity == null:
-		is_run_fishing_running = false;
-		return;
+		selected_rarity = self.get_node("ProgressBar").get_node("RarityHolder").get_children()[0].name;
+		print(texture_position.global_position.y);
+		print("Could not detect a rarity");
+
+	var selected_fish = data.fish_rarity[selected_rarity].pick_random();
+	print("Selected fish: " + selected_fish + " Rarity: " + selected_rarity);
+	_on_game_add_score(plr_id, data.fish_score[selected_rarity]);
 
 	await get_tree().create_timer(3).timeout;
 	is_run_fishing_running = false;

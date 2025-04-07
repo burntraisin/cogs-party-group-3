@@ -9,8 +9,8 @@ var fish_score = {
 
 var fish_rarity = {
 	"Common" = ["Coho Salmon", "Moray Eel", "Striped Bass", "Tuna"],
-	"Rare" = ["Wobbegong", "Northern Stargazer", "African Glass Catfish",],
-	"Epic" = ["Oarfish"],
+	"Rare" = ["Northern Stargazer", "African Glass Catfish",],
+	"Epic" = ["Oarfish", "Wobbegong"],
 	"Legendary" = ["Great White Shark", "Coelacanth"],
 };
 
