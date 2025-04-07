@@ -181,7 +181,7 @@ scroll_active = false
 tab_size = 24
 
 [node name="TimeRemaining" type="Timer" parent="Stats"]
-wait_time = 15.0
+wait_time = 181.0
 one_shot = true
 
 [node name="Fish" type="Area2D" parent="."]

@@ -8,7 +8,7 @@ var rarity = ["Common", "Rare", "Epic", "Legendary"];
 
 var currently_fishing = false;
 var is_run_fishing_running = false;
-# 523, 144
+signal stop_fishing_button();
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +20,10 @@ func _process(delta: float) -> void:
 		if !is_run_fishing_running:
 			print("Changed");
 			run_fishing();
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("spacebar_pressed"):
+		stop_fishing_button.emit();
 
 func _on_game_add_score(id, score) -> void:
 	if (id != plr_id):
@@ -48,7 +52,16 @@ func run_fishing() -> void:
 	for n in 4:
 		bar.move_child(bar.get_node(rarity[n]), n);
 
-	await get_tree().create_timer(3).timeout;
+	var tween = get_tree().create_tween();
+	tween.set_loops();
+
+	tween.tween_property(texture, "position", Vector2(294, 144), 0.25);
+	tween.tween_property(texture, "position", Vector2(294, 523), 0.25);
+
+	await stop_fishing_button;
+	tween.kill();
+
+	await get_tree().create_timer(100).timeout;
 	is_run_fishing_running = false;
 
 
