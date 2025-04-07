@@ -6,18 +6,20 @@ var current_score = 0;
 const plr_id = 1;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 
+var currently_fishing = false;
+var is_run_fishing_running = false;
 # 523, 144
-
-signal done_fishing(id);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	run_fishing();
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if currently_fishing:
+		if !is_run_fishing_running:
+			print("Changed");
+			run_fishing();
 
 func _on_game_add_score(id, score) -> void:
 	if (id != plr_id):
@@ -36,6 +38,7 @@ func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	self.get_node("Score").text = "[center] Score: " + str(current_score) + " [/center]"
 
 func run_fishing() -> void:
+	is_run_fishing_running = true;
 	var texture = self.get_node("ArrowStart");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
 
@@ -44,7 +47,19 @@ func run_fishing() -> void:
 
 	for n in 4:
 		bar.move_child(bar.get_node(rarity[n]), n);
-	
+
+	await get_tree().create_timer(3).timeout;
+	is_run_fishing_running = false;
+
 
 func _on_game_start_fishing(id) -> void:
-	pass
+	if (id != plr_id):
+		return;
+		
+	currently_fishing = true;
+
+func _on_game_stop_fishing(id:Variant) -> void:
+	if (id != plr_id):
+		return;
+		
+	currently_fishing = false;

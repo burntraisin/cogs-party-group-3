@@ -1,7 +1,7 @@
 #full game controller
 
 extends Node2D
-var plr_count;
+var plr_count = 1;
 var timer_status = 0;
 
 var fish_scene = preload("res://FishGame.tscn");
@@ -12,11 +12,13 @@ var fish_scene = preload("res://FishGame.tscn");
 
 signal add_score(id, score);
 signal remove_score(id, score);
+
 signal start_fishing(id);
+signal stop_fishing(id);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	controller();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,12 +38,8 @@ func setup(player_data: Array[RefCounted]) -> void:
 		players["Player" + str(i+1)].show;
 		stats["Player" + str(i+1)].show;
 
-
-func _on_player_1_done_fishing(id: Variant) -> void:
-	pass # Replace with function body.
-
 func controller() -> void:
-	for n in range(10, -0, -1):	
+	for n in range(5, -0, -1):	
 		timer.text = "[center] " + str(n) + "... [/center]";
 		await get_tree().create_timer(1).timeout;
 
@@ -52,7 +50,14 @@ func controller() -> void:
 	stats.get_node("TimeRemaining").start();
 	timer_status = 1;
 
-	
+	for n in range(1, plr_count + 1):
+		start_fishing.emit(n);
+
+	await stats.get_node("TimeRemaining").timeout;
+	print("Time's up!");
+
+	for n in range(1, plr_count + 1):
+		stop_fishing.emit(n);
 
 func _on_time_remaining_timeout():
 	timer_status = 0;

@@ -93,7 +93,8 @@ scale = Vector2(1.6, 1.6)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "    Score: 0"
+text = "    Score: 0
+"
 scroll_active = false
 
 [node name="ArrowStart" type="TextureRect" parent="Stats/Player1"]
@@ -180,7 +181,7 @@ scroll_active = false
 tab_size = 24
 
 [node name="TimeRemaining" type="Timer" parent="Stats"]
-wait_time = 181.0
+wait_time = 15.0
 one_shot = true
 
 [node name="Fish" type="Area2D" parent="."]
@@ -195,5 +196,8 @@ texture = ExtResource("2_8vjq6")
 position = Vector2(134, -155)
 shape = SubResource("RectangleShape2D_372sw")
 
-[connection signal="done_fishing" from="Stats/Player1" to="." method="_on_player_1_done_fishing"]
+[connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
+[connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]
+[connection signal="start_fishing" from="." to="Stats/Player1" method="_on_game_start_fishing"]
+[connection signal="stop_fishing" from="." to="Stats/Player1" method="_on_game_stop_fishing"]
 [connection signal="timeout" from="Stats/TimeRemaining" to="." method="_on_time_remaining_timeout"]
