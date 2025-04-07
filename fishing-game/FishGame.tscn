@@ -102,7 +102,7 @@ layout_mode = 0
 offset_left = 294.0
 offset_top = 523.0
 offset_right = 389.0
-offset_bottom = 600.0
+offset_bottom = 601.0
 rotation = 3.14159
 texture = ExtResource("3_2iydp")
 expand_mode = 1
@@ -147,6 +147,13 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="ArrowPosition" type="Panel" parent="Stats/Player1"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 483.0
+offset_right = 200.0
+offset_bottom = 484.0
 
 [node name="Timer" type="Control" parent="Stats"]
 layout_mode = 3
