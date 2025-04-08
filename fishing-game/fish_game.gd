@@ -14,8 +14,8 @@ var fish_scene = preload("res://FishGame.tscn");
 
 @onready var stats = get_node("Stats");
 @onready var players = get_node("Player");
-@onready var timer = stats.get_node("Timer").get_node("Name");
-@onready var highest = stats.get_node("CurrentLeader").get_node("Name");
+@onready var timer = stats.get_node("Timer").get_node("PanelContainer").get_node("Name");
+@onready var highest = stats.get_node("CurrentLeader").get_node("PanelContainer").get_node("Name");
 
 signal add_score(id, score);
 signal remove_score(id, score);

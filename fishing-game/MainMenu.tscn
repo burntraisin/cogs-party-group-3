@@ -1,10 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c43vi20226y8j"]
+[gd_scene load_steps=8 format=3 uid="uid://c43vi20226y8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="Script" path="res://minigame_manager.gd" id="2_2pu14"]
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="3_iunwc"]
+[ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="4_orxcf"]
 
 [sub_resource type="Theme" id="Theme_3nhuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eo82"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.596078, 0.992157, 0.556863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jla7c"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_wrrex")
@@ -359,9 +371,76 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="TextureRect" type="TextureRect" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_iunwc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar2" type="PanelContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8eo82")
+
+[node name="RarityHolder" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/ProgressBar2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Common" type="Panel" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/ProgressBar2/RarityHolder"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_styles/panel = SubResource("StyleBoxFlat_jla7c")
+
+[node name="Rare" type="Panel" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/ProgressBar2/RarityHolder"]
+modulate = Color(0.207087, 0.581242, 0.89822, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jla7c")
+
+[node name="Epic" type="Panel" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/ProgressBar2/RarityHolder"]
+modulate = Color(0.76204, 0.361323, 0.865161, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jla7c")
+
+[node name="Legendary" type="Panel" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/ProgressBar2/RarityHolder"]
+modulate = Color(0.899351, 0.673612, 0.228508, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_jla7c")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ArrowStart" type="TextureRect" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_orxcf")
+expand_mode = 1
+flip_h = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
 modulate = Color(0.596078, 0.992157, 0.556863, 1)
