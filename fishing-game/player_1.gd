@@ -99,3 +99,4 @@ func _on_game_stop_fishing(id:Variant) -> void:
 		
 	currently_fishing = false;
 	self.get_node("ArrowStart").queue_free();
+	self.get_node("ArrowPosition").queue_free();
