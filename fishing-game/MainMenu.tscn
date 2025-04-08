@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c43vi20226y8j"]
+[gd_scene load_steps=5 format=3 uid="uid://c43vi20226y8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="Script" path="res://minigame_manager.gd" id="2_2pu14"]
+[ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="3_iunwc"]
 
 [sub_resource type="Theme" id="Theme_3nhuq"]
 
@@ -123,6 +124,16 @@ text = "Legendary"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label3" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
+modulate = Color(0.898039, 0.67451, 0.227451, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "100 Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label2" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
 modulate = Color(0.596078, 0.992157, 0.556863, 1)
 layout_mode = 2
@@ -145,6 +156,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 50
 text = "Epic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
+modulate = Color(0.760784, 0.360784, 0.866667, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "50 Coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -173,6 +194,16 @@ text = "Rare"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label5" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer3"]
+modulate = Color(0.207843, 0.580392, 0.898039, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "25 Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label4" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer3"]
 modulate = Color(0.596078, 0.992157, 0.556863, 1)
 layout_mode = 2
@@ -195,6 +226,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 50
 text = "Common"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer4"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "15 Coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -243,6 +284,7 @@ theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer"]
 modulate = Color(0.596078, 0.992157, 0.556863, 1)
@@ -256,6 +298,81 @@ vertical_alignment = 1
 [node name="MainContainer" type="HBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Hooking the Fish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="TextureRect" type="TextureRect" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_iunwc")
+
+[node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "Use your joystick to aim your hook. Once you are ready, press R2 to cast it into the water. If you successfully captured a fish, be ready to reel it in. If not, try again!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Reeling it In"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="TextureRect" type="TextureRect" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_iunwc")
+
+[node name="Label3" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "After you have hooked your fish, get ready to reel it in! Time your catch in the bar to the side. The better your timing, the better the catch!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 49
+text = "The player with the highest amount of coins at the end wins!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Close" type="Button" parent="RulesNode"]
 offset_left = 1688.0

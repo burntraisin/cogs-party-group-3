@@ -94,7 +94,7 @@ scale = Vector2(1.6, 1.6)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "    Score: 0
+text = "     Coins: 0
 "
 scroll_active = false
 
@@ -150,6 +150,7 @@ size_flags_stretch_ratio = 0.1
 theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
 
 [node name="ArrowPosition" type="Panel" parent="Stats/Player1"]
+visible = false
 layout_mode = 0
 offset_left = 199.0
 offset_top = 483.0

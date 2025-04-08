@@ -32,7 +32,7 @@ func _on_game_add_score(id, score) -> void:
 	
 	var new_score = current_score + score;
 	current_score = new_score;
-	self.get_node("Score").text = "    Score: " + str(current_score)
+	self.get_node("Score").text = "     Coins: " + str(current_score)
 
 func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	if (id != plr_id):
@@ -40,7 +40,7 @@ func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	
 	var new_score = current_score - score;
 	current_score = new_score;
-	self.get_node("Score").text = "    Score: " + str(current_score)
+	self.get_node("Score").text = "     Coins: " + str(current_score)
 
 func run_fishing() -> void:
 	is_run_fishing_running = true;

@@ -1,6 +1,6 @@
 # Main Menu controller
-
 extends Node2D
+var data_array;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,15 +12,30 @@ func _ready() -> void:
 	buttons.get_node("Rules").pressed.connect(open_rules);
 	self.get_node("RulesNode").get_node("Close").pressed.connect(close_rules);
 
+	buttons.get_node("StartGame").pressed.connect(start_the_game);
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func _on_minigame_manager_game_started(player_data_array: Array[RefCounted]) -> void:
+func _on_minigame_manager_game_started(player_data_array: Array[RefCounted]) -> void:	
+	data_array = player_data_array;
+
+func start_the_game() -> void:
 	var game_scene = preload("res://FishGame.tscn");
 	var game = game_scene.instantiate();
+
+	if data_array:
+		game.setup(data_array);
 	
-	game.setup(player_data_array);
+	self.add_child(game);
+	game.visible = true;
+	self.get_node("MenuNode").visible = false;
+	self.get_node("FishLibraryNode").visible = false;
+	self.get_node("RulesNode").visible = false;
+
+	game.controller();
+	pass;
 
 func open_fishing_library() -> void:
 	self.get_node("FishLibraryNode").visible = true;
