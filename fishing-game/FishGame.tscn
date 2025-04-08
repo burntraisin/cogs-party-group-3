@@ -15,7 +15,7 @@ border_width_left = 7
 border_width_top = 7
 border_width_right = 7
 border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n42xn"]
 bg_color = Color(1, 1, 1, 1)
@@ -78,7 +78,7 @@ layout_mode = 0
 offset_right = 254.0
 offset_bottom = 53.0
 scale = Vector2(1.6, 1.6)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 text = "[center] Player 1 [/center]"
@@ -91,7 +91,7 @@ offset_top = 501.0
 offset_right = 256.0
 offset_bottom = 530.0
 scale = Vector2(1.6, 1.6)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "     Coins: 0
@@ -183,10 +183,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 text = "[center] Time Remaining: 3:00 [/center]"
+scroll_active = false
+tab_size = 24
+
+[node name="CurrentLeader" type="Control" parent="Stats"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 660.0
+offset_top = 1030.0
+offset_right = 1260.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Stats/CurrentLeader"]
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 50.0
+scale = Vector2(1, 1.00381)
+size_flags_horizontal = 3
+color = Color(0.596078, 0.992157, 0.556863, 1)
+
+[node name="Name" type="RichTextLabel" parent="Stats/CurrentLeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center] Current Leader: Player 1 [/center]"
 scroll_active = false
 tab_size = 24
 
@@ -210,4 +247,5 @@ shape = SubResource("RectangleShape2D_372sw")
 [connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]
 [connection signal="start_fishing" from="." to="Stats/Player1" method="_on_game_start_fishing"]
 [connection signal="stop_fishing" from="." to="Stats/Player1" method="_on_game_stop_fishing"]
+[connection signal="send_score_to_main" from="Stats/Player1" to="." method="_on_player_1_send_score_to_main"]
 [connection signal="timeout" from="Stats/TimeRemaining" to="." method="_on_time_remaining_timeout"]

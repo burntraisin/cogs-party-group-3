@@ -10,7 +10,9 @@ var input = "backspace_pressed"
 
 var currently_fishing = false;
 var is_run_fishing_running = false;
+
 signal stop_fishing_button();
+signal send_score_to_main(score);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +36,8 @@ func _on_game_add_score(id, score) -> void:
 	current_score = new_score;
 	self.get_node("Score").text = "     Coins: " + str(current_score)
 
+	send_score_to_main.emit(current_score);
+
 func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	if (id != plr_id):
 		return
@@ -42,12 +46,13 @@ func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	current_score = new_score;
 	self.get_node("Score").text = "     Coins: " + str(current_score)
 
+	send_score_to_main.emit(current_score);
+
 func run_fishing() -> void:
 	is_run_fishing_running = true;
 	var texture = self.get_node("ArrowStart");
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
-	print(bar.get_node("Common").global_position.y);
 
 	randomize();
 	rarity.shuffle();
@@ -58,10 +63,10 @@ func run_fishing() -> void:
 
 	var tween = get_tree().create_tween();
 	tween.set_loops();
-	tween.tween_property(texture, "position", Vector2(294, 144), 0.25);
-	tween.parallel().tween_property(texture_position, "position", Vector2(199,104), 0.25);
-	tween.tween_property(texture, "position", Vector2(294, 523), 0.25);
-	tween.parallel().tween_property(texture_position, "position", Vector2(199,483), 0.25);
+	tween.tween_property(texture, "position", Vector2(294, 144), 0.35);
+	tween.parallel().tween_property(texture_position, "position", Vector2(199,104), 0.35);
+	tween.tween_property(texture, "position", Vector2(294, 523), 0.35);
+	tween.parallel().tween_property(texture_position, "position", Vector2(199,483), 0.35);
 	await stop_fishing_button;
 	tween.kill();
 
@@ -76,7 +81,6 @@ func run_fishing() -> void:
 		print("Could not detect a rarity");
 
 	var selected_fish = data.fish_rarity[selected_rarity].pick_random();
-	print("Selected fish: " + selected_fish + " Rarity: " + selected_rarity);
 	_on_game_add_score(plr_id, data.fish_score[selected_rarity]);
 
 	await get_tree().create_timer(3).timeout;

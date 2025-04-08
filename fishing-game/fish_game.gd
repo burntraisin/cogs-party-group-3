@@ -3,12 +3,19 @@
 extends Node2D
 var plr_count = 1;
 var timer_status = 0;
+var scores = {
+	"Player 1" = 0,
+	"Player 2" = 0,
+	"Player 3" = 0,
+	"Player 4" = 0,
+}
 
 var fish_scene = preload("res://FishGame.tscn");
 
 @onready var stats = get_node("Stats");
 @onready var players = get_node("Player");
 @onready var timer = stats.get_node("Timer").get_node("Name");
+@onready var highest = stats.get_node("CurrentLeader").get_node("Name");
 
 signal add_score(id, score);
 signal remove_score(id, score);
@@ -22,6 +29,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var highest_name = "Player 1"
+	for key in scores:
+		if scores[key] > scores[highest_name]:
+			highest_name = key;
+	highest.text = "[center] Current Leader: " + highest_name + " [/center]";
+
 	if timer_status == 1:
 		var time_left = stats.get_node("TimeRemaining").time_left;
 		var minute = floor(time_left / 60);
@@ -65,3 +78,7 @@ func _on_time_remaining_timeout():
 	await get_tree().create_timer(3).timeout;
 	timer.text = "[center] And the winner is... [/center]";
 	await get_tree().create_timer(3).timeout;
+
+
+func _on_player_1_send_score_to_main(score) -> void:
+	scores["Player 1"] = score;
