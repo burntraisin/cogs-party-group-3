@@ -56,17 +56,17 @@ func run_fishing() -> void:
 
 	randomize();
 	rarity.shuffle();
-	texture.position = Vector2(294, 523);
+	texture.position = Vector2(294, 522);
 
 	for n in 4:
 		bar.move_child(bar.get_node(rarity[n]), n);
 
 	var tween = get_tree().create_tween();
 	tween.set_loops();
-	tween.tween_property(texture, "position", Vector2(294, 144), 0.35);
-	tween.parallel().tween_property(texture_position, "position", Vector2(199,104), 0.35);
-	tween.tween_property(texture, "position", Vector2(294, 523), 0.35);
-	tween.parallel().tween_property(texture_position, "position", Vector2(199,483), 0.35);
+	tween.tween_property(texture, "position", Vector2(294, 143), 0.35);
+	tween.parallel().tween_property(texture_position, "position", Vector2(199,103), 0.35);
+	tween.tween_property(texture, "position", Vector2(294, 522), 0.35);
+	tween.parallel().tween_property(texture_position, "position", Vector2(199,482), 0.35);
 	await stop_fishing_button;
 	tween.kill();
 
