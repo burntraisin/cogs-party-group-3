@@ -31,6 +31,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 1921.0
 offset_bottom = 1081.0
+color = Color(0.596078, 0.992157, 0.556863, 1)
 
 [node name="Pond" type="Node2D" parent="."]
 material = SubResource("CanvasItemMaterial_ree2q")
@@ -171,6 +172,7 @@ offset_right = 600.0
 offset_bottom = 50.0
 scale = Vector2(1, 1.00381)
 size_flags_horizontal = 3
+color = Color(0.596078, 0.992157, 0.556863, 1)
 
 [node name="Name" type="RichTextLabel" parent="Stats/Timer"]
 layout_mode = 1
