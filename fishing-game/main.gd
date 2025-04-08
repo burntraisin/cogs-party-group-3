@@ -27,15 +27,20 @@ func start_the_game() -> void:
 
 	if data_array:
 		game.setup(data_array);
+
+	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartGame").text = "Loading...";
+	await get_tree().create_timer(3).timeout;
 	
 	self.add_child(game);
 	game.visible = true;
 	self.get_node("MenuNode").visible = false;
 	self.get_node("FishLibraryNode").visible = false;
 	self.get_node("RulesNode").visible = false;
+	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartGame").text = "Start Game";
 
-	game.controller();
-	pass;
+	await game.controller();
+	self.get_node("MenuNode").visible = true;
+	game.queue_free();
 
 func open_fishing_library() -> void:
 	self.get_node("FishLibraryNode").visible = true;
