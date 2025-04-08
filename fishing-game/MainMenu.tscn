@@ -1,20 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43vi20226y8j"]
+[gd_scene load_steps=4 format=3 uid="uid://c43vi20226y8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="Script" path="res://minigame_manager.gd" id="2_2pu14"]
 
+[sub_resource type="Theme" id="Theme_3nhuq"]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_wrrex")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MenuNode" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="MenuNode"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.597509, 0.991324, 0.558606, 1)
 
-[node name="MinigameManager" type="Node" parent="."]
-script = ExtResource("2_2pu14")
-
-[node name="MainMenuContainer" type="MarginContainer" parent="."]
+[node name="MainMenuContainer" type="MarginContainer" parent="MenuNode"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_constants/margin_left = 120
@@ -22,26 +23,26 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuNode/MainMenuContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="LeftSide" type="CenterContainer" parent="MainMenuContainer/HBoxContainer"]
+[node name="LeftSide" type="CenterContainer" parent="MenuNode/MainMenuContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MainMenuContainer/HBoxContainer/LeftSide"]
+[node name="Label" type="Label" parent="MenuNode/MainMenuContainer/HBoxContainer/LeftSide"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Fishing Frenzy!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RightSide" type="VBoxContainer" parent="MainMenuContainer/HBoxContainer"]
+[node name="RightSide" type="VBoxContainer" parent="MenuNode/MainMenuContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/HBoxContainer/RightSide"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 100
@@ -49,23 +50,164 @@ theme_override_constants/margin_top = 150
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 150
 
-[node name="Buttons" type="VBoxContainer" parent="MainMenuContainer/HBoxContainer/RightSide/MarginContainer"]
+[node name="Buttons" type="VBoxContainer" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="StartGame" type="Button" parent="MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
+[node name="StartGame" type="Button" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Start Game"
 
-[node name="FishLibrary" type="Button" parent="MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
+[node name="FishLibrary" type="Button" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Fish Library"
 
-[node name="Credits" type="Button" parent="MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
+[node name="Credits" type="Button" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Credits"
+
+[node name="MinigameManager" type="Node" parent="."]
+script = ExtResource("2_2pu14")
+
+[node name="FishLibraryNode" type="Node2D" parent="."]
+
+[node name="MainMenuContainer" type="MarginContainer" parent="FishLibraryNode"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="ColorRect" type="ColorRect" parent="FishLibraryNode/MainMenuContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FishLibraryNode/MainMenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FishLibraryNode/MainMenuContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 100
+text = "Fish Library"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.898039, 0.67451, 0.227451, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Legendary"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.760784, 0.360784, 0.866667, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Epic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.207843, 0.580392, 0.898039, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Rare"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Common"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "
+Great White Shark
+Coelacanth"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "
+Oarfish
+Wobbegong"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "
+Northern Stargazer
+African Glass Catfish"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+modulate = Color(0.596078, 0.992157, 0.556863, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "
+Coho Salmon
+Moray Eel
+Striped Bass
+Tuna"
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="FishLibraryNode"]
+offset_left = 1688.0
+offset_top = 90.0
+offset_right = 1719.0
+offset_bottom = 121.0
+scale = Vector2(3.24, 3.24)
+theme = SubResource("Theme_3nhuq")
+text = "X"
 
 [connection signal="game_started" from="MinigameManager" to="." method="_on_minigame_manager_game_started"]
