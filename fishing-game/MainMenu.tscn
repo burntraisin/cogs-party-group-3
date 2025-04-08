@@ -1,11 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://c43vi20226y8j"]
+[gd_scene load_steps=10 format=3 uid="uid://c43vi20226y8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="Script" path="res://minigame_manager.gd" id="2_2pu14"]
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="3_iunwc"]
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="4_orxcf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkp4"]
+bg_color = Color(0.596078, 0.992157, 0.556863, 1)
+
 [sub_resource type="Theme" id="Theme_3nhuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81gaj"]
+bg_color = Color(0.596078, 0.992157, 0.556863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eo82"]
 bg_color = Color(1, 1, 1, 1)
@@ -118,10 +124,10 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 
 [node name="Label" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_chkp4")
 text = "Fish Library"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -307,10 +313,10 @@ layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_81gaj")
 text = "How to Play"
 horizontal_alignment = 1
 vertical_alignment = 1

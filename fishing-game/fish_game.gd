@@ -25,22 +25,22 @@ signal stop_fishing(id);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var highest_name = "Player 1"
-	for key in scores:
-		if scores[key] > scores[highest_name]:
-			highest_name = key;
-	highest.text = "[center] Current Leader: " + highest_name + " [/center]";
-
 	if timer_status == 1:
 		var time_left = stats.get_node("TimeRemaining").time_left;
 		var minute = floor(time_left / 60);
 		var second = int(time_left) % 60;
 		var time = "%02d:%02d" % [minute, second];
 		timer.text = "[center] Time Remaining: " + time + " [/center]";
+
+		var highest_name = "Player 1"
+		for key in scores:
+			if scores[key] > scores[highest_name]:
+				highest_name = key;
+		highest.text = "[center] Current Leader: " + highest_name + " [/center]";
 
 
 func setup(player_data: Array[RefCounted]) -> void:
@@ -71,6 +71,47 @@ func controller() -> void:
 
 	for n in range(1, plr_count + 1):
 		stop_fishing.emit(n);
+
+	await get_tree().create_timer(6).timeout;
+
+	var results = self.get_node("Results");
+	var placements = results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer");
+
+	var scores_copy = scores.duplicate();
+	var sorted_scores = {};
+	for n in scores.size():
+		var highest_name = scores_copy.keys()[0];
+		for key in scores_copy:
+			if scores_copy[key] > scores_copy[highest_name]:
+				highest_name = key;
+		sorted_scores[highest_name] = scores[highest_name];
+		scores_copy.erase(highest_name);
+	
+	print(sorted_scores);
+
+	if plr_count == 1:
+		placements.get_node("FirstPlace").text = "1st: " + sorted_scores.keys()[0] + " with " + str(sorted_scores.values()[0]) + " Coins!";
+	elif plr_count == 2:
+		placements.get_node("FirstPlace").text = "1st: " + sorted_scores.keys()[0] + " with " + str(sorted_scores.values()[0]) + " Coins!";
+		placements.get_node("SecondPlace").text = "2nd: " + sorted_scores.keys()[1] + " with " + str(sorted_scores.values()[1]) + " Coins!";
+		placements.get_node("SecondPlace").visible = true;
+	elif plr_count == 3:
+		placements.get_node("FirstPlace").text = "1st: " + sorted_scores.keys()[0] + " with " + str(sorted_scores.values()[0]) + " Coins!";
+		placements.get_node("SecondPlace").text = "2nd: " + sorted_scores.keys()[1] + " with " + str(sorted_scores.values()[1]) + " Coins!";
+		placements.get_node("ThirdPlace").text = "3rd: " + sorted_scores.keys()[2] + " with " + str(sorted_scores.values()[2]) + " Coins!";
+		placements.get_node("SecondPlace").visible = true;
+		placements.get_node("ThirdPlace").visible = true;
+	elif plr_count == 4:
+		placements.get_node("FirstPlace").text = "1st: " + sorted_scores.keys()[0] + " with " + str(sorted_scores.values()[0]) + " Coins!";
+		placements.get_node("SecondPlace").text = "2nd: " + sorted_scores.keys()[1] + " with " + str(sorted_scores.values()[1]) + " Coins!";
+		placements.get_node("ThirdPlace").text = "3rd: " + sorted_scores.keys()[2] + " with " + str(sorted_scores.values()[2]) + " Coins!";
+		placements.get_node("FourthPlace").text = "4th: " + sorted_scores.keys()[3] + " with " + str(sorted_scores.values()[3]) + " Coins :("
+		placements.get_node("SecondPlace").visible = true;
+		placements.get_node("ThirdPlace").visible = true;
+		placements.get_node("FourthPlace").visible = true;
+
+	results.visible = true;
+	await placements.get_node("ExitToMenu").pressed;
 
 func _on_time_remaining_timeout():
 	timer_status = 0;
