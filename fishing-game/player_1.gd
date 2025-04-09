@@ -15,7 +15,10 @@ signal send_score_to_main(score);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
+
+	for key in data.fish_odds:
+		bar.get_node(key).size_flags_stretch_ratio = data.fish_odds[key];
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -53,6 +56,9 @@ func run_fishing() -> void:
 	var texture = self.get_node("ArrowStart");
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
+
+	var hook_rarity = "Rare"
+	adjust_odds(hook_rarity);
 
 	randomize();
 	rarity.shuffle();
@@ -100,3 +106,12 @@ func _on_game_stop_fishing(id:Variant) -> void:
 	currently_fishing = false;
 	self.get_node("ArrowStart").queue_free();
 	self.get_node("ArrowPosition").queue_free();
+
+func hook():
+	pass;
+
+func adjust_odds(hooked_rarity):
+	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
+	
+	for key in data.fish_bar_odds[hooked_rarity]:
+		bar.get_node(key).size_flags_stretch_ratio = data.fish_bar_odds[hooked_rarity][key];

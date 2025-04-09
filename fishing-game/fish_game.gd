@@ -86,8 +86,6 @@ func controller() -> void:
 				highest_name = key;
 		sorted_scores[highest_name] = scores[highest_name];
 		scores_copy.erase(highest_name);
-	
-	print(sorted_scores);
 
 	if plr_count == 1:
 		placements.get_node("FirstPlace").text = "1st: " + sorted_scores.keys()[0] + " with " + str(sorted_scores.values()[0]) + " Coins!";
