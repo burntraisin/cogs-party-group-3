@@ -63,6 +63,7 @@ scale = Vector2(1.35724, 1.32329)
 texture = ExtResource("1_o6fvn")
 
 [node name="WaterBoundaries" type="Area2D" parent="Pond"]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
 position = Vector2(915, 336.875)

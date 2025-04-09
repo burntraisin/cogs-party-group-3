@@ -14,6 +14,15 @@ var fish_rarity = {
 	"Legendary" = ["Great White Shark", "Coelacanth"],
 };
 
+var fish_speed = {
+	"Common" = 5,
+	"Rare" = 10,
+	"Epic" = 15,
+	"Legendary" = 35,
+};
+
+var fish_size;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
