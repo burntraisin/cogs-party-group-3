@@ -1,13 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=16 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
+[ext_resource type="Script" path="res://pond.gd" id="2_4o6vf"]
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="2_8vjq6"]
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="3_2iydp"]
 [ext_resource type="Script" path="res://player_1.gd" id="3_pi2lh"]
-[ext_resource type="Script" path="res://fish.gd" id="6_gpo67"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as14a"]
+size = Vector2(66.2496, 28.3082)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5e68"]
+size = Vector2(133.75, 13.705)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7lhr"]
 bg_color = Color(1, 1, 1, 1)
@@ -35,9 +41,6 @@ bg_color = Color(0.596078, 0.992157, 0.556863, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeopv"]
 bg_color = Color(0.596078, 0.992157, 0.556863, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_372sw"]
-size = Vector2(124, 124)
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_d3qom")
 
@@ -46,17 +49,66 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 1921.0
 offset_bottom = 1081.0
-color = Color(0.596078, 0.992157, 0.556863, 1)
+color = Color(0.25098, 0.678431, 0.215686, 1)
 
 [node name="Pond" type="Node2D" parent="."]
 material = SubResource("CanvasItemMaterial_ree2q")
 position = Vector2(1, 1)
 scale = Vector2(1.6, 1.6)
+script = ExtResource("2_4o6vf")
 
 [node name="Water" type="Sprite2D" parent="Pond"]
 position = Vector2(601, 338)
 scale = Vector2(1.35724, 1.32329)
 texture = ExtResource("1_o6fvn")
+
+[node name="WaterBoundaries" type="Area2D" parent="Pond"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(915, 336.875)
+scale = Vector2(1, -14.925)
+shape = SubResource("RectangleShape2D_as14a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(287.5, 336.875)
+scale = Vector2(1, -14.925)
+shape = SubResource("RectangleShape2D_as14a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(601.875, 33.125)
+rotation = 1.5708
+scale = Vector2(0.999999, -14.925)
+shape = SubResource("RectangleShape2D_as14a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(601.875, 640.625)
+rotation = 1.5708
+scale = Vector2(0.999999, -14.925)
+shape = SubResource("RectangleShape2D_as14a")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(322.1, 66.25)
+rotation = 1.5708
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_k5e68")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(880, 66.25)
+rotation = 1.5708
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_k5e68")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(322.725, 607.5)
+rotation = 1.5708
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_k5e68")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
+position = Vector2(879.375, 607.5)
+rotation = 1.5708
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_k5e68")
 
 [node name="Player" type="Node2D" parent="."]
 scale = Vector2(1.6, 1.6)
@@ -186,14 +238,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = 23.0
+offset_right = -37.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.13548, 1.13548)
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2gcu")
 
 [node name="ColorRect" type="ColorRect" parent="Stats/Timer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0.596078, 0.992157, 0.556863, 1)
+color = Color(0.249623, 0.677793, 0.215545, 1)
 
 [node name="Name" type="RichTextLabel" parent="Stats/Timer/PanelContainer"]
 layout_mode = 2
@@ -213,9 +270,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 660.0
-offset_top = 1030.0
+offset_top = 1000.0
 offset_right = 1260.0
-offset_bottom = 1080.0
+offset_bottom = 1050.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -225,14 +282,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = -37.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.135, 1.135)
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2gcu")
 
 [node name="ColorRect" type="ColorRect" parent="Stats/CurrentLeader/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0.596078, 0.992157, 0.556863, 1)
+color = Color(0.25098, 0.678431, 0.215686, 1)
 
 [node name="Name" type="RichTextLabel" parent="Stats/CurrentLeader/PanelContainer"]
 layout_mode = 2
@@ -330,18 +390,6 @@ theme_override_font_sizes/font_size = 75
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_cwba0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xeopv")
 text = "Exit to Main Menu"
-
-[node name="Fish" type="Area2D" parent="."]
-scale = Vector2(0.994771, 1)
-script = ExtResource("6_gpo67")
-
-[node name="Sprite2D" type="Sprite2D" parent="Fish"]
-position = Vector2(133, -155)
-texture = ExtResource("2_8vjq6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
-position = Vector2(134, -155)
-shape = SubResource("RectangleShape2D_372sw")
 
 [connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
 [connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]

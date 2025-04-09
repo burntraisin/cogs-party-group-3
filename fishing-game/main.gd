@@ -14,6 +14,14 @@ func _ready() -> void:
 
 	buttons.get_node("StartGame").pressed.connect(start_the_game);
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("back_button"):
+		if self.get_node("RulesNode").visible:
+			close_rules();
+		elif self.get_node("FishLibraryNode").visible:
+			close_fishing_library();
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

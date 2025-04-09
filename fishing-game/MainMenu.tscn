@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="4_orxcf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkp4"]
-bg_color = Color(0.596078, 0.992157, 0.556863, 1)
+bg_color = Color(0.25098, 0.678431, 0.215686, 1)
 
 [sub_resource type="Theme" id="Theme_3nhuq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81gaj"]
-bg_color = Color(0.596078, 0.992157, 0.556863, 1)
+bg_color = Color(0.25098, 0.678431, 0.215686, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eo82"]
 bg_color = Color(1, 1, 1, 1)
@@ -19,7 +19,7 @@ border_width_left = 7
 border_width_top = 7
 border_width_right = 7
 border_width_bottom = 7
-border_color = Color(0.596078, 0.992157, 0.556863, 1)
+border_color = Color(0.25098, 0.678431, 0.215686, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jla7c"]
 bg_color = Color(1, 1, 1, 1)
@@ -32,7 +32,7 @@ script = ExtResource("1_wrrex")
 [node name="ColorRect" type="ColorRect" parent="MenuNode"]
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.597509, 0.991324, 0.558606, 1)
+color = Color(0.25098, 0.678431, 0.215686, 1)
 
 [node name="MainMenuContainer" type="MarginContainer" parent="MenuNode"]
 offset_right = 1920.0
@@ -83,16 +83,22 @@ alignment = 1
 
 [node name="StartGame" type="Button" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../FishLibrary")
+focus_neighbor_bottom = NodePath("../Rules")
 theme_override_font_sizes/font_size = 75
 text = "Start Game"
 
 [node name="Rules" type="Button" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../StartGame")
+focus_neighbor_bottom = NodePath("../FishLibrary")
 theme_override_font_sizes/font_size = 75
 text = "How to Play"
 
 [node name="FishLibrary" type="Button" parent="MenuNode/MainMenuContainer/HBoxContainer/RightSide/MarginContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Rules")
+focus_neighbor_bottom = NodePath("../StartGame")
 theme_override_font_sizes/font_size = 75
 text = "Fish Library"
 
@@ -122,6 +128,7 @@ theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FishLibraryNode/MainMenuContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -161,7 +168,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -196,7 +203,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -231,7 +238,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer3"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -266,7 +273,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="FishLibraryNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer4"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -330,7 +337,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
@@ -349,7 +356,7 @@ layout_mode = 2
 texture = ExtResource("3_iunwc")
 
 [node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 35
@@ -363,7 +370,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
@@ -449,7 +456,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer2"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 35
@@ -459,7 +466,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer"]
-modulate = Color(0.596078, 0.992157, 0.556863, 1)
+modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 49

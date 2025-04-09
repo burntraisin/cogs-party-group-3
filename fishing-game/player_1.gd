@@ -6,7 +6,6 @@ var current_score = 0;
 const plr_id = 1;
 
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
-var input = "backspace_pressed"
 
 var currently_fishing = false;
 var is_run_fishing_running = false;
@@ -25,8 +24,9 @@ func _process(delta: float) -> void:
 			run_fishing();
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed(input):
-		stop_fishing_button.emit();
+	if Input.is_action_pressed("select_button") and event.device == 0:
+		if currently_fishing:
+			stop_fishing_button.emit();
 
 func _on_game_add_score(id, score) -> void:
 	if (id != plr_id):
