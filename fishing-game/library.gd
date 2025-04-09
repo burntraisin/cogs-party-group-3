@@ -49,17 +49,17 @@ var fish_bar_odds = {
 }
 
 var fish_speed = {
-	"Common" = 5,
-	"Rare" = 10,
-	"Epic" = 15,
-	"Legendary" = 35,
+	"Common" = Vector2(5,5),
+	"Rare" = Vector2(10,10),
+	"Epic" = Vector2(20,20),
+	"Legendary" = Vector2(35,35),
 };
 
 var fish_color = {
-	"Common" = Color(160, 160, 160),
-	"Rare" = Color(53, 148, 229),
-	"Epic" = Color(194, 92, 221),
-	"Legendary" = Color(229, 172, 58),
+	"Common" = Color8(160, 160, 160),
+	"Rare" = Color8(53, 148, 229),
+	"Epic" = Color8(194, 92, 221),
+	"Legendary" = Color8(229, 172, 58),
 }
 
 # Called when the node enters the scene tree for the first time.

@@ -10,12 +10,11 @@ height = 80.0
 [node name="Fish" type="Node2D"]
 script = ExtResource("1_qeqyc")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_8y2qs")
 
-[node name="FishSprite" type="Sprite2D" parent="."]
+[node name="FishSprite" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_prtea")

@@ -1,4 +1,5 @@
 extends Node2D
+var data = LibraryData.new();
 
 var rarity;
 var speed;
@@ -7,6 +8,9 @@ var color;
 var is_fishable = true;
 var fish_lifespan = 10;
 var fish_age = 0;
+
+@onready var body = self.get_node("CharacterBody2D");
+@onready var sprite = body.get_node("FishSprite");
 
 #give the hook a mask of 2
 # Called when the node enters the scene tree for the first time.
@@ -26,10 +30,16 @@ func _process(delta: float) -> void:
 
 func setup(rarity, speed, color):
 	self.rarity = rarity;
-	self.speed = speed;
 	self.color = color;
+	self.modulate = color;
+	body.velocity = speed;
 
-	self.get_node("FishSprite").modulate = color;
+func _physics_process(delta: float) -> void:
+	var collision = body.move_and_collide(body.velocity, delta);
+	if collision:
+		if collision.get_collider().is_in_group("pond_edge"):
+			var normal = collision.get_normal()
+			body.velocity = body.velocity.bounce(normal) * 0.8;
 
 func get_fishable() -> bool:
 	return is_fishable;
