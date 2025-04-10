@@ -12,6 +12,9 @@ var is_run_fishing_running = false;
 signal stop_fishing_button();
 signal send_score_to_main(score);
 
+@onready var player = owner.get_node("Player").get_node("Player" + str(plr_id));
+@onready var hook = player.get_node("CharacterBody2D")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
@@ -24,6 +27,9 @@ func _process(delta: float) -> void:
 	if currently_fishing:
 		if !is_run_fishing_running:
 			run_fishing();
+
+func _physics_process(delta: float) -> void:
+	pass;
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("select_button") and event.device == device_id:
@@ -56,10 +62,12 @@ func run_fishing() -> void:
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
 
-	var hook_rarity = "Common";
-	if hook_rarity == "":
-		self.get_node("FishResult").visible = true;
+	await stop_fishing_button;
+	var hook_rarity = hook_fish();
+	if hook_rarity == "Nothing":
+		self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught [/center]"
 		self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center] Nothing : ( [/center]";
+		self.get_node("FishResult").visible = true;
 		await get_tree().create_timer(3).timeout;
 		self.get_node("FishResult").visible = false;
 		is_run_fishing_running = false;
@@ -120,8 +128,13 @@ func _on_game_stop_fishing(id:Variant) -> void:
 	self.get_node("ArrowStart").queue_free();
 	self.get_node("ArrowPosition").queue_free();
 
-func hook():
-	pass;
+func hook_fish():
+	var collision = hook.move_and_collide(Vector2(0,0), true);
+	if collision:
+		var collider = collision.get_collider();
+		return collider.owner.get_rarity();
+	else:
+		return "Nothing";
 
 func adjust_odds(hooked_rarity):
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");

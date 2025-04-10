@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=21 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -16,6 +16,12 @@ size = Vector2(66.2496, 28.3082)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5e68"]
 size = Vector2(133.75, 13.705)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhlnb"]
+size = Vector2(16.2813, 17.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbb7m"]
+bg_color = Color(0.721219, 0.568632, 0.399203, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7lhr"]
 bg_color = Color(1, 1, 1, 1)
@@ -127,6 +133,24 @@ scale = Vector2(1.6, 1.6)
 [node name="Player1" type="Sprite2D" parent="Player"]
 position = Vector2(322, 65)
 texture = ExtResource("2_8vjq6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player/Player1"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player1/CharacterBody2D"]
+position = Vector2(221.823, 221.948)
+rotation = 0.785398
+scale = Vector2(1.42426, 1)
+shape = SubResource("RectangleShape2D_hhlnb")
+
+[node name="Hook" type="Panel" parent="Player/Player1/CharacterBody2D"]
+offset_left = 6.0
+offset_top = -6.0
+offset_right = 198.0
+offset_bottom = -2.0
+rotation = 0.785398
+scale = Vector2(1.69285, 4.84046)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbb7m")
 
 [node name="Player2" type="Sprite2D" parent="Player"]
 position = Vector2(322, 612)
@@ -246,6 +270,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xe2sy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Stats/Player1/FishResult"]
 layout_mode = 2
+size_flags_vertical = 4
 alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="Stats/Player1/FishResult/VBoxContainer"]
@@ -256,6 +281,7 @@ theme_override_fonts/normal_font = ExtResource("7_mk04g")
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center] You caught a Common [/center]"
+fit_content = true
 scroll_active = false
 
 [node name="FishResult" type="RichTextLabel" parent="Stats/Player1/FishResult/VBoxContainer"]
@@ -354,7 +380,7 @@ scroll_active = false
 tab_size = 24
 
 [node name="TimeRemaining" type="Timer" parent="Stats"]
-wait_time = 10.0
+wait_time = 181.0
 one_shot = true
 
 [node name="Results" type="Node2D" parent="."]

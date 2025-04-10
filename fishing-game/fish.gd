@@ -52,3 +52,6 @@ func _physics_process(delta: float) -> void:
 
 func get_fishable() -> bool:
 	return is_fishable;
+
+func get_rarity():
+	return rarity;
