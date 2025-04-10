@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=19 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="2_8vjq6"]
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://arrow.png" id="3_2iydp"]
 [ext_resource type="Script" path="res://player_1.gd" id="3_pi2lh"]
+[ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="7_mk04g"]
+[ext_resource type="FontFile" uid="uid://clth83xq7v4ev" path="res://Marimpa.ttf" id="8_1nxeq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
 
@@ -153,7 +155,8 @@ offset_right = 254.0
 offset_bottom = 53.0
 scale = Vector2(1.6, 1.6)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 38
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center] Player 1 [/center]"
 scroll_active = false
@@ -166,7 +169,8 @@ offset_right = 256.0
 offset_bottom = 530.0
 scale = Vector2(1.6, 1.6)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "     Coins: 0
 "
@@ -237,7 +241,7 @@ layout_mode = 0
 offset_left = 38.0
 offset_top = 134.0
 offset_right = 738.0
-offset_bottom = 334.0
+offset_bottom = 314.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xe2sy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Stats/Player1/FishResult"]
@@ -248,7 +252,8 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
-theme_override_font_sizes/normal_font_size = 60
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[center] You caught: [/center]"
 scroll_active = false
@@ -257,9 +262,11 @@ scroll_active = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
-theme_override_font_sizes/normal_font_size = 60
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[center] Nothing : ( [/center]"
+fit_content = true
 scroll_active = false
 
 [node name="Timer" type="Control" parent="Stats"]
@@ -296,7 +303,8 @@ color = Color(0.249623, 0.677793, 0.215545, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 38
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[center] Time Remaining: 3:00 [/center]"
 scroll_active = false
@@ -338,7 +346,8 @@ color = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 38
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[center] Current Leader: Nobody! [/center]"
 scroll_active = false
@@ -378,7 +387,8 @@ theme_override_constants/separation = 15
 [node name="Label" type="Label" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("7_mk04g")
+theme_override_font_sizes/font_size = 130
 theme_override_styles/normal = SubResource("StyleBoxFlat_w77w0")
 text = "Results!"
 horizontal_alignment = 1
@@ -388,7 +398,8 @@ vertical_alignment = 1
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_font_sizes/font_size = 95
 text = "1st: Player 1 with 0 Coins!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -398,7 +409,8 @@ visible = false
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_font_sizes/font_size = 95
 text = "2nd: Player 2 with 0 Coins!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -408,7 +420,8 @@ visible = false
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_font_sizes/font_size = 95
 text = "3rd: Player 3 with 0 Coins!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -418,18 +431,31 @@ visible = false
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_font_sizes/font_size = 95
 text = "4th: Player 4 with 0 Coins :("
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitToMenu" type="Button" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Container2" type="Container" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitToMenu" type="Button" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 75
+theme_override_fonts/font = ExtResource("7_mk04g")
+theme_override_font_sizes/font_size = 95
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_cwba0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xeopv")
-text = "Exit to Main Menu"
+text = " Exit to Main Menu "
+
+[node name="Container" type="Container" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
 [connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]

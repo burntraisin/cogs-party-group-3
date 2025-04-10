@@ -27,7 +27,7 @@ signal close_the_game();
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.get_node("Results").get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("ExitToMenu").pressed.connect(close_the_game_button);
+	self.get_node("Results").get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("HBoxContainer").get_node("ExitToMenu").pressed.connect(close_the_game_button);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -41,7 +41,6 @@ func add_fish():
 		for n in data.fish_odds[key]:
 			chances.insert(0, key);
 
-	randomize();
 	var rarity = chances.pick_random();
 	new_fish.setup(rarity, data.fish_speed[rarity], data.fish_color[rarity]);
 

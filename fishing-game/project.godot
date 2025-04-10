@@ -32,7 +32,7 @@ project/assembly_name="Fishing Game"
 
 [gui]
 
-theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_subpixel_positioning=0
 
 [input]
 
