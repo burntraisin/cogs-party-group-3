@@ -34,7 +34,7 @@ func add_fish():
 	water.add_child(new_fish);
 	
 	randomize();
-	new_fish.position = Vector2(randi() % 350 + 81, randi() % 130 + 251);
+	new_fish.position = Vector2(randi() % 350 + 81, randi() % 250 + 131);
 
 	var chances = [];
 	for key in data.fish_odds:

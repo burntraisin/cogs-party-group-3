@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=17 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -25,6 +25,13 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n42xn"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe2sy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2gcu"]
 corner_radius_top_left = 100
@@ -111,13 +118,6 @@ position = Vector2(879.375, 607.5)
 rotation = 1.5708
 scale = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_k5e68")
-
-[node name="Panel" type="Panel" parent="Pond"]
-visible = false
-offset_left = 323.75
-offset_top = 135.0
-offset_right = 878.75
-offset_bottom = 535.0
 
 [node name="Player" type="Node2D" parent="."]
 scale = Vector2(1.6, 1.6)
@@ -230,6 +230,37 @@ offset_left = 199.0
 offset_top = 482.0
 offset_right = 200.0
 offset_bottom = 483.0
+
+[node name="FishResult" type="PanelContainer" parent="Stats/Player1"]
+visible = false
+layout_mode = 0
+offset_left = 38.0
+offset_top = 134.0
+offset_right = 738.0
+offset_bottom = 334.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xe2sy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/Player1/FishResult"]
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Stats/Player1/FishResult/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center] You caught: [/center]"
+scroll_active = false
+
+[node name="FishResult" type="RichTextLabel" parent="Stats/Player1/FishResult/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center] Nothing : ( [/center]"
+scroll_active = false
 
 [node name="Timer" type="Control" parent="Stats"]
 layout_mode = 3

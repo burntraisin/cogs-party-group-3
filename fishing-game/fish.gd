@@ -37,11 +37,12 @@ func setup(rarity, speed, color):
 	self.rarity = rarity;
 	self.color = color;
 	self.modulate = color;
+	self.speed = speed;
 	body.velocity = speed;
 
 func _physics_process(delta: float) -> void:
 	if is_fishable:
-		var collision = body.move_and_collide(direction);
+		var collision = body.move_and_collide(direction * speed);
 		sprite.rotation = direction.angle();
 
 		if collision:

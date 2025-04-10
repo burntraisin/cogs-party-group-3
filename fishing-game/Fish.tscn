@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://phi87i7ujhfv"]
+[gd_scene load_steps=5 format=3 uid="uid://phi87i7ujhfv"]
 
 [ext_resource type="Script" path="res://fish.gd" id="1_qeqyc"]
-[ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="2_prtea"]
+[ext_resource type="Texture2D" uid="uid://xumlwfxganji" path="res://fish_eyes.png" id="2_ajt6b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8y2qs"]
 radius = 39.0
 height = 80.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k7b0"]
+size = Vector2(16, 72)
+
 [node name="Fish" type="Node2D"]
-modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_qeqyc")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -18,6 +20,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_8y2qs")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-30.6667, 1.27157e-06)
+shape = SubResource("RectangleShape2D_8k7b0")
+
 [node name="FishSprite" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_prtea")
+texture = ExtResource("2_ajt6b")
+flip_h = true

@@ -56,7 +56,15 @@ func run_fishing() -> void:
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
 
-	var hook_rarity = "Legendary"
+	var hook_rarity = "Common";
+	if hook_rarity == "":
+		self.get_node("FishResult").visible = true;
+		self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center] Nothing : ( [/center]";
+		await get_tree().create_timer(3).timeout;
+		self.get_node("FishResult").visible = false;
+		is_run_fishing_running = false;
+		return;
+
 	adjust_odds(hook_rarity);
 
 	randomize();
@@ -88,7 +96,12 @@ func run_fishing() -> void:
 	var selected_fish = data.fish_rarity[selected_rarity].pick_random();
 	_on_game_add_score(plr_id, data.fish_score[selected_rarity]);
 
+	self.get_node("FishResult").visible = true;
+	self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center] " + selected_fish + "! [/center]";
+
 	await get_tree().create_timer(3).timeout;
+
+	self.get_node("FishResult").visible = false;
 	is_run_fishing_running = false;
 
 
