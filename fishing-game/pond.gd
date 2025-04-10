@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 func add_fish():
 	var new_fish = fish.instantiate();
 	water.add_child(new_fish);
+	new_fish.position = Vector2(255, 255);
 
 	var chances = [];
 	for key in data.fish_odds:

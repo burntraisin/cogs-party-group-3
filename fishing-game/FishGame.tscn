@@ -58,12 +58,13 @@ scale = Vector2(1.6, 1.6)
 script = ExtResource("2_4o6vf")
 
 [node name="Water" type="Sprite2D" parent="Pond"]
-position = Vector2(601, 338)
+position = Vector2(255, 0)
 scale = Vector2(1.35724, 1.32329)
 texture = ExtResource("1_o6fvn")
+centered = false
 
 [node name="WaterBoundaries" type="Area2D" parent="Pond"]
-collision_mask = 0
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
 position = Vector2(915, 336.875)
