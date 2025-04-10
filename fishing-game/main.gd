@@ -12,12 +12,23 @@ func _ready() -> void:
 	self.get_node("RulesNode").get_node("Close").pressed.connect(close_rules);
 	buttons.get_node("StartGame").pressed.connect(start_the_game);
 
+	buttons.get_node("StartGame").grab_focus();
+
 func _input(event: InputEvent) -> void:
+	var buttons = self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons");
+
 	if Input.is_action_pressed("back_button"):
 		if self.get_node("RulesNode").visible:
 			close_rules();
 		elif self.get_node("FishLibraryNode").visible:
 			close_fishing_library();
+	elif Input.is_action_pressed("select_button"):
+		if buttons.get_node("Rules").has_focus():
+			open_rules();
+		elif buttons.get_node("FishLibrary").has_focus():
+			open_fishing_library();
+		elif buttons.get_node("StartGame").has_focus():
+			start_the_game();
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
