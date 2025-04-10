@@ -23,9 +23,11 @@ signal remove_score(id, score);
 signal start_fishing(id);
 signal stop_fishing(id);
 
+signal close_the_game();
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass;
+	self.get_node("Results").get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("ExitToMenu").pressed.connect(close_the_game_button);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -42,6 +44,9 @@ func _process(delta: float) -> void:
 				highest_name = key;
 		highest.text = "[center] Current Leader: " + highest_name + " [/center]";
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("back_button"):
+		close_the_game.emit();
 
 func setup(player_data: Array[RefCounted]) -> void:
 	plr_count = player_data.size()
@@ -109,7 +114,7 @@ func controller() -> void:
 		placements.get_node("FourthPlace").visible = true;
 
 	results.visible = true;
-	await placements.get_node("ExitToMenu").pressed;
+	await close_the_game;
 
 func _on_time_remaining_timeout():
 	timer_status = 0;
@@ -118,6 +123,8 @@ func _on_time_remaining_timeout():
 	timer.text = "[center] And the winner is... [/center]";
 	await get_tree().create_timer(3).timeout;
 
-
 func _on_player_1_send_score_to_main(score) -> void:
 	scores["Player 1"] = score;
+
+func close_the_game_button():
+	close_the_game.emit();

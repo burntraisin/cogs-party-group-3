@@ -8,10 +8,8 @@ func _ready() -> void:
 
 	buttons.get_node("FishLibrary").pressed.connect(open_fishing_library);
 	self.get_node("FishLibraryNode").get_node("Close").pressed.connect(close_fishing_library);
-
 	buttons.get_node("Rules").pressed.connect(open_rules);
 	self.get_node("RulesNode").get_node("Close").pressed.connect(close_rules);
-
 	buttons.get_node("StartGame").pressed.connect(start_the_game);
 
 func _input(event: InputEvent) -> void:
@@ -24,7 +22,7 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	pass;
 
 func _on_minigame_manager_game_started(player_data_array: Array[RefCounted]) -> void:	
 	data_array = player_data_array;

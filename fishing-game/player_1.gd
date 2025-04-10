@@ -4,9 +4,8 @@ extends Control
 var data = LibraryData.new();
 var current_score = 0;
 const plr_id = 1;
-
+const device_id = 0;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
-
 var currently_fishing = false;
 var is_run_fishing_running = false;
 
@@ -27,7 +26,7 @@ func _process(delta: float) -> void:
 			run_fishing();
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("select_button") and event.device == 0:
+	if Input.is_action_pressed("select_button") and event.device == device_id:
 		if currently_fishing:
 			stop_fishing_button.emit();
 
@@ -57,7 +56,7 @@ func run_fishing() -> void:
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
 
-	var hook_rarity = "Rare"
+	var hook_rarity = "Legendary"
 	adjust_odds(hook_rarity);
 
 	randomize();
