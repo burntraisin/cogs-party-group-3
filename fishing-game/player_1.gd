@@ -97,7 +97,8 @@ func run_fishing() -> void:
 	_on_game_add_score(plr_id, data.fish_score[selected_rarity]);
 
 	self.get_node("FishResult").visible = true;
-	self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center] " + selected_fish + "! [/center]";
+	self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught a " + selected_rarity + " [/center]"
+	self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center]" + selected_fish + "![/center]";
 
 	await get_tree().create_timer(3).timeout;
 

@@ -45,8 +45,9 @@ func _process(delta: float) -> void:
 		highest.text = "[center] Current Leader: " + highest_name + " [/center]";
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("back_button"):
-		close_the_game.emit();
+	if event.device == 0:
+		if Input.is_action_pressed("back_button") or Input.is_action_pressed("select_button"):
+			close_the_game.emit();
 
 func setup(player_data: Array[RefCounted]) -> void:
 	plr_count = player_data.size()
@@ -114,6 +115,7 @@ func controller() -> void:
 		placements.get_node("FourthPlace").visible = true;
 
 	results.visible = true;
+	results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("HBoxContainer").get_node("ExitToMenu").grab_focus();
 	await close_the_game;
 
 func _on_time_remaining_timeout():

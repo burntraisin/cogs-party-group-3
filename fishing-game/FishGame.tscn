@@ -253,9 +253,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
 theme_override_fonts/normal_font = ExtResource("7_mk04g")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "[center] You caught: [/center]"
+text = "[center] You caught a Common [/center]"
 scroll_active = false
 
 [node name="FishResult" type="RichTextLabel" parent="Stats/Player1/FishResult/VBoxContainer"]
@@ -265,7 +265,7 @@ theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
 theme_override_fonts/normal_font = ExtResource("7_mk04g")
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
-text = "[center] Nothing : ( [/center]"
+text = "[center]Fish Name[/center]"
 fit_content = true
 scroll_active = false
 
