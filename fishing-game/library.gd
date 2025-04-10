@@ -51,8 +51,8 @@ var fish_bar_odds = {
 var fish_speed = {
 	"Common" = Vector2(35, 35),
 	"Rare" = Vector2(50,50),
-	"Epic" = Vector2(65,65),
-	"Legendary" = Vector2(80,80),
+	"Epic" = Vector2(75,75),
+	"Legendary" = Vector2(100,100),
 };
 
 var fish_color = {

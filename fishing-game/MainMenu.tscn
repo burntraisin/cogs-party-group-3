@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="Script" path="res://minigame_manager.gd" id="2_2pu14"]
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="3_iunwc"]
-[ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://black triangle.png" id="4_orxcf"]
+[ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://arrow.png" id="4_orxcf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkp4"]
 bg_color = Color(0.25098, 0.678431, 0.215686, 1)

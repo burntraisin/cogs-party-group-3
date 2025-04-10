@@ -5,9 +5,12 @@ var rarity;
 var speed;
 var color;
 
-var is_fishable = true;
-var fish_lifespan = 10;
+var is_fishable = false;
+var fish_lifespan = 15;
 var fish_age = 0;
+
+var random_angle: float;
+var direction;
 
 @onready var body = self.get_node("CharacterBody2D");
 @onready var sprite = body.get_node("FishSprite");
@@ -15,7 +18,9 @@ var fish_age = 0;
 #give the hook a mask of 2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass;
+	random_angle = randf_range(0, TAU);
+	direction = Vector2.from_angle(random_angle);
+	is_fishable = true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,7 +29,7 @@ func _process(delta: float) -> void:
 	if fish_age >= fish_lifespan:
 		is_fishable = false;
 		var tween = get_tree().create_tween();
-		tween.tween_property(self, "modulate:a", 0, 2.5);
+		tween.tween_property(self, "modulate:a", 0, 3);
 		await tween.finished;
 		queue_free();
 
@@ -36,15 +41,13 @@ func setup(rarity, speed, color):
 
 func _physics_process(delta: float) -> void:
 	if is_fishable:
-		var random_angle: float = randf_range(0, TAU);
-		var direction = Vector2.from_angle(random_angle);
 		var collision = body.move_and_collide(direction);
+		sprite.rotation = direction.angle();
 
 		if collision:
-			if collision.get_collider().is_in_group("pond_edge"):
-				print("Collided")
-				var normal = collision.get_normal()
-				body.velocity = body.velocity.bounce(-normal) * 0.8;
+			if collision.get_collider().is_in_group("pond_edges"):
+				random_angle = randf_range(0, TAU);
+				direction = Vector2.from_angle(random_angle);
 
 func get_fishable() -> bool:
 	return is_fishable;

@@ -16,23 +16,25 @@ func _ready() -> void:
 	water.child_entered_tree.connect(child_entered);
 	water.child_exiting_tree.connect(child_exited);
 
-	for n in 1:
+	for n in 4:
 		add_fish();
-		await get_tree().create_timer(2).timeout;
+		await get_tree().create_timer(1).timeout;
 
 var t = 0.0
 func _process(delta: float) -> void:
 	pass;
 	t += delta;
 
-	if fish_amount <= 10 and t >= 5.0:
+	if fish_amount <= 15 and t >= 2.5:
 		add_fish();
 		t = 0.0;
 
 func add_fish():
 	var new_fish = fish.instantiate();
 	water.add_child(new_fish);
-	new_fish.position = Vector2(255, 255);
+	
+	randomize();
+	new_fish.position = Vector2(randi() % 350 + 81, randi() % 130 + 251);
 
 	var chances = [];
 	for key in data.fish_odds:
