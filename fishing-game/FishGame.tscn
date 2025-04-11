@@ -152,11 +152,11 @@ rotation = 0.785398
 scale = Vector2(1.69285, 4.84046)
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbb7m")
 
-[node name="Player2" type="Sprite2D" parent="Player"]
+[node name="Player3" type="Sprite2D" parent="Player"]
 position = Vector2(322, 612)
 texture = ExtResource("2_8vjq6")
 
-[node name="Player3" type="Sprite2D" parent="Player"]
+[node name="Player2" type="Sprite2D" parent="Player"]
 position = Vector2(883, 65)
 texture = ExtResource("2_8vjq6")
 

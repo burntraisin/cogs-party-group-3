@@ -27,11 +27,7 @@ func _process(delta: float) -> void:
 	fish_age += delta;
 
 	if fish_age >= fish_lifespan:
-		is_fishable = false;
-		var tween = get_tree().create_tween();
-		tween.tween_property(self, "modulate:a", 0, 3);
-		await tween.finished;
-		queue_free();
+		destroy_fish();
 
 func setup(rarity, speed, color):
 	self.rarity = rarity;
@@ -55,3 +51,10 @@ func get_fishable() -> bool:
 
 func get_rarity():
 	return rarity;
+
+func destroy_fish():
+	is_fishable = false;
+	var tween = get_tree().create_tween();
+	tween.tween_property(self, "modulate:a", 0, 3);		
+	await tween.finished;
+	queue_free();

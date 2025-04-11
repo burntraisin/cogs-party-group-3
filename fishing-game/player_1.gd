@@ -61,6 +61,7 @@ func run_fishing() -> void:
 	var texture = self.get_node("ArrowStart");
 	var texture_position = self.get_node("ArrowPosition");
 	var bar = self.get_node("ProgressBar").get_node("RarityHolder");
+	texture.position = Vector2(294, 522);
 
 	await stop_fishing_button;
 	var hook_rarity = hook_fish();
@@ -74,10 +75,8 @@ func run_fishing() -> void:
 		return;
 
 	adjust_odds(hook_rarity);
-
 	randomize();
 	rarity.shuffle();
-	texture.position = Vector2(294, 522);
 
 	for n in 4:
 		bar.move_child(bar.get_node(rarity[n]), n);
@@ -132,6 +131,7 @@ func hook_fish():
 	var collision = hook.move_and_collide(Vector2(0,0), true);
 	if collision:
 		var collider = collision.get_collider();
+		collider.owner.destroy_fish();
 		return collider.owner.get_rarity();
 	else:
 		return "Nothing";
