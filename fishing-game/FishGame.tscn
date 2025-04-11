@@ -149,7 +149,7 @@ offset_top = -6.0
 offset_right = 198.0
 offset_bottom = -2.0
 rotation = 0.785398
-scale = Vector2(1.69285, 4.84046)
+scale = Vector2(1.693, 4.84)
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbb7m")
 
 [node name="Player3" type="Sprite2D" parent="Player"]
