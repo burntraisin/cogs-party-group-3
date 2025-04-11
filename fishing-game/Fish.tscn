@@ -8,7 +8,7 @@ radius = 39.0
 height = 80.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8k7b0"]
-size = Vector2(16, 72)
+size = Vector2(21.2766, 93.617)
 
 [node name="Fish" type="Node2D"]
 script = ExtResource("1_qeqyc")
@@ -17,14 +17,16 @@ script = ExtResource("1_qeqyc")
 scale = Vector2(0.75, 0.75)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_8y2qs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-30.6667, 1.27157e-06)
-shape = SubResource("RectangleShape2D_8k7b0")
-
 [node name="FishSprite" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ajt6b")
 flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(0.812222, 0.812222)
+shape = SubResource("CapsuleShape2D_8y2qs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-25.3333, -9.53674e-07)
+scale = Vector2(0.626667, 0.626667)
+shape = SubResource("RectangleShape2D_8k7b0")

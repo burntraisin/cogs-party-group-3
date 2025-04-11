@@ -8,7 +8,6 @@ const device_id = 0;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
-var is_currently_hooking = false;
 
 signal stop_fishing_button();
 signal send_score_to_main(score);
@@ -29,24 +28,21 @@ func _process(delta: float) -> void:
 		if !is_run_fishing_running:
 			run_fishing();
 
-func _physics_process(delta: float) -> void:
-	pass;
-
+#220.556 221.965
 func _input(event: InputEvent) -> void:
 	if currently_fishing and event.device == device_id:
-		if is_currently_hooking:
-			if Input.is_action_pressed("move_up"):
-				if hook.get_node("Hook").scale < Vector2(1.693, 4.84):
-					hook.get_node("Hook").scale += Vector2(0.05, 0)
-			elif Input.is_action_pressed("move_down"):
-				if hook.get_node("Hook").scale > Vector2(0.603, 4.84):
-					hook.get_node("Hook").scale -= Vector2(0.05, 0)
-			elif Input.is_action_pressed("move_left"):
-				if hook.get_node("Hook").rotation <= deg_to_rad(90):
-					hook.get_node("Hook").rotation += deg_to_rad(1);
-			elif Input.is_action_pressed("move_right"):
-				if hook.get_node("Hook").rotation >= deg_to_rad(0):
-					hook.get_node("Hook").rotation -= deg_to_rad(1);
+		if Input.is_action_pressed("move_up"):
+			if hook.scale < Vector2(1, 1):
+				hook.scale += Vector2(0.05, 0.05)
+		elif Input.is_action_pressed("move_down"):
+			if hook.scale >= Vector2(0.35, 0.35):
+				hook.scale -= Vector2(0.05, 0.05)
+		elif Input.is_action_pressed("move_left"):
+			if hook.rotation <= deg_to_rad(40):
+				hook.rotation += deg_to_rad(1);
+		elif Input.is_action_pressed("move_right"):
+			if hook.rotation >= deg_to_rad(-40):
+				hook.rotation -= deg_to_rad(1);
 		else:
 			if Input.is_action_pressed("select_button"):
 				stop_fishing_button.emit();
@@ -73,7 +69,6 @@ func _on_game_remove_score(id:Variant, score:Variant) -> void:
 	send_score_to_main.emit(current_score);
 
 func run_fishing() -> void:
-	is_currently_hooking = true;
 	is_run_fishing_running = true;
 	var texture = self.get_node("ArrowStart");
 	var texture_position = self.get_node("ArrowPosition");
@@ -81,7 +76,6 @@ func run_fishing() -> void:
 	texture.position = Vector2(294, 522);
 
 	await stop_fishing_button;
-	is_currently_hooking = false;
 	var hook_rarity = hook_fish();
 	if hook_rarity == "Nothing":
 		self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught [/center]"

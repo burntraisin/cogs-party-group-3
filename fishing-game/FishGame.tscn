@@ -17,11 +17,11 @@ size = Vector2(66.2496, 28.3082)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5e68"]
 size = Vector2(133.75, 13.705)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhlnb"]
-size = Vector2(16.2813, 17.5)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbb7m"]
 bg_color = Color(0.721219, 0.568632, 0.399203, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhlnb"]
+size = Vector2(16.2813, 18.3346)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7lhr"]
 bg_color = Color(1, 1, 1, 1)
@@ -137,20 +137,19 @@ texture = ExtResource("2_8vjq6")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player/Player1"]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player1/CharacterBody2D"]
-position = Vector2(221.823, 221.948)
-rotation = 0.785398
-scale = Vector2(1.42426, 1)
-shape = SubResource("RectangleShape2D_hhlnb")
-
 [node name="Hook" type="Panel" parent="Player/Player1/CharacterBody2D"]
 offset_left = 6.0
 offset_top = -6.0
-offset_right = 198.0
-offset_bottom = -2.0
+offset_right = 331.0
+offset_bottom = 14.0
 rotation = 0.785398
-scale = Vector2(1.693, 4.84)
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbb7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player1/CharacterBody2D"]
+position = Vector2(220.556, 221.965)
+rotation = 0.785398
+scale = Vector2(1.42426, 1)
+shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="Player3" type="Sprite2D" parent="Player"]
 position = Vector2(322, 612)
