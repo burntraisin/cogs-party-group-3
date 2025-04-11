@@ -31,7 +31,27 @@ func _process(delta: float) -> void:
 #220.556 221.965
 func _input(event: InputEvent) -> void:
 	if currently_fishing and event.device == device_id:
-		if Input.is_action_pressed("move_up"):
+		if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):
+			if hook.scale < Vector2(1, 1):
+				hook.scale += Vector2(0.05, 0.05)
+			if hook.rotation <= deg_to_rad(40):
+				hook.rotation += deg_to_rad(2.5);
+		elif Input.is_action_pressed("move_up") and Input.is_action_pressed("move_right"):
+			if hook.scale < Vector2(1, 1):
+				hook.scale += Vector2(0.05, 0.05)
+			if hook.rotation >= deg_to_rad(-40):
+				hook.rotation -= deg_to_rad(2.5);
+		elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_left"):
+			if hook.scale >= Vector2(0.35, 0.35):
+				hook.scale -= Vector2(0.05, 0.05)
+			if hook.rotation <= deg_to_rad(40):
+				hook.rotation += deg_to_rad(2.5);
+		elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_right"):
+			if hook.scale >= Vector2(0.35, 0.35):
+				hook.scale -= Vector2(0.05, 0.05)
+			if hook.rotation >= deg_to_rad(-40):
+				hook.rotation -= deg_to_rad(2.5);
+		elif Input.is_action_pressed("move_up"):
 			if hook.scale < Vector2(1, 1):
 				hook.scale += Vector2(0.05, 0.05)
 		elif Input.is_action_pressed("move_down"):
@@ -39,10 +59,10 @@ func _input(event: InputEvent) -> void:
 				hook.scale -= Vector2(0.05, 0.05)
 		elif Input.is_action_pressed("move_left"):
 			if hook.rotation <= deg_to_rad(40):
-				hook.rotation += deg_to_rad(1);
+				hook.rotation += deg_to_rad(2.5);
 		elif Input.is_action_pressed("move_right"):
 			if hook.rotation >= deg_to_rad(-40):
-				hook.rotation -= deg_to_rad(1);
+				hook.rotation -= deg_to_rad(2.5);
 		else:
 			if Input.is_action_pressed("select_button"):
 				stop_fishing_button.emit();

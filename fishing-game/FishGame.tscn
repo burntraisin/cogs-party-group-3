@@ -18,10 +18,10 @@ size = Vector2(66.2496, 28.3082)
 size = Vector2(133.75, 13.705)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbb7m"]
-bg_color = Color(0.721219, 0.568632, 0.399203, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhlnb"]
-size = Vector2(16.2813, 18.3346)
+size = Vector2(16.5905, 19.9978)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7lhr"]
 bg_color = Color(1, 1, 1, 1)
@@ -146,7 +146,7 @@ rotation = 0.785398
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbb7m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player1/CharacterBody2D"]
-position = Vector2(220.556, 221.965)
+position = Vector2(220.288, 222.544)
 rotation = 0.785398
 scale = Vector2(1.42426, 1)
 shape = SubResource("RectangleShape2D_hhlnb")
@@ -379,7 +379,7 @@ scroll_active = false
 tab_size = 24
 
 [node name="TimeRemaining" type="Timer" parent="Stats"]
-wait_time = 181.0
+wait_time = 10.0
 one_shot = true
 
 [node name="Results" type="Node2D" parent="."]

@@ -58,7 +58,7 @@ func start_the_game() -> void:
 
 	await game.controller();
 	self.get_node("MenuNode").visible = true;
-	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartMenu").grab_focus();
+	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartGame").grab_focus();
 	game.queue_free();
 
 func open_fishing_library() -> void:
