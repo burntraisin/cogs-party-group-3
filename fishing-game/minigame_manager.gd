@@ -201,7 +201,7 @@ func _ready():
 	if save_file_data.size() == 0:
 		push_warning("Save file not found, loading dummy save data...")
 		save_file_data = DUMMY_SAVE_DATA.duplicate(true)
-	
+
 	game_started.emit(get_players())
 
 

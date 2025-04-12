@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 
 func _on_minigame_manager_game_started(player_data_array: Array[RefCounted]) -> void:	
 	data_array = player_data_array;
+	print("hello")
 
 func start_the_game() -> void:
 	var game_scene = preload("res://FishGame.tscn");

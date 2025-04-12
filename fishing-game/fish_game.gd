@@ -53,7 +53,7 @@ func setup(player_data: Array[RefCounted]) -> void:
 	plr_count = player_data.size()
 
 	for i in player_data.size():
-		players["Player" + str(i+1)].modulate = player_data[i].color;
+		players["Player" + str(i+1)].get_node("guy").modulate = player_data[i].color;
 		players["Player" + str(i+1)].show;
 		stats["Player" + str(i+1)].show;
 

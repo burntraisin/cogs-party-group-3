@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=23 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://arrow.png" id="3_2iydp"]
 [ext_resource type="Script" path="res://player_1.gd" id="3_pi2lh"]
 [ext_resource type="Texture2D" uid="uid://kbtxas7dirdy" path="res://boat.png" id="4_nn62s"]
+[ext_resource type="Texture2D" uid="uid://c7hxj6uolnsme" path="res://guy.png" id="5_a3xxp"]
+[ext_resource type="Texture2D" uid="uid://btri2eeinlpxd" path="res://fishing_rod.png" id="6_3ipxc"]
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="7_mk04g"]
 [ext_resource type="FontFile" uid="uid://clth83xq7v4ev" path="res://Marimpa.ttf" id="8_1nxeq"]
 
@@ -135,6 +137,7 @@ position = Vector2(322, 65)
 texture = ExtResource("4_nn62s")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player/Player1"]
+position = Vector2(45.962, 30.052)
 collision_layer = 4
 
 [node name="Hook" type="Panel" parent="Player/Player1/CharacterBody2D"]
@@ -151,14 +154,75 @@ rotation = 0.785398
 scale = Vector2(1.42426, 1)
 shape = SubResource("RectangleShape2D_hhlnb")
 
+[node name="guy" type="TextureRect" parent="Player/Player1"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("5_a3xxp")
+
+[node name="rod" type="TextureRect" parent="Player/Player1"]
+modulate = Color(0, 0.443737, 0.443892, 1)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("6_3ipxc")
+
 [node name="Player3" type="Sprite2D" parent="Player"]
 position = Vector2(322, 612)
 texture = ExtResource("4_nn62s")
 flip_v = true
 
+[node name="guy" type="TextureRect" parent="Player/Player3"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("5_a3xxp")
+flip_v = true
+
+[node name="rod" type="TextureRect" parent="Player/Player3"]
+modulate = Color(0, 0.443737, 0.443892, 1)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("6_3ipxc")
+flip_v = true
+
 [node name="Player2" type="Sprite2D" parent="Player"]
 position = Vector2(883, 65)
 texture = ExtResource("4_nn62s")
+flip_h = true
+
+[node name="guy" type="TextureRect" parent="Player/Player2"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("5_a3xxp")
+flip_h = true
+
+[node name="rod" type="TextureRect" parent="Player/Player2"]
+modulate = Color(0, 0.443737, 0.443892, 1)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("6_3ipxc")
 flip_h = true
 
 [node name="Player4" type="Sprite2D" parent="Player"]
@@ -167,7 +231,31 @@ texture = ExtResource("4_nn62s")
 flip_h = true
 flip_v = true
 
+[node name="guy" type="TextureRect" parent="Player/Player4"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("5_a3xxp")
+flip_h = true
+flip_v = true
+
+[node name="rod" type="TextureRect" parent="Player/Player4"]
+modulate = Color(0, 0.443737, 0.443892, 1)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("6_3ipxc")
+flip_h = true
+flip_v = true
+
 [node name="Stats" type="Node2D" parent="."]
+visible = false
 
 [node name="Player1" type="Control" parent="Stats"]
 layout_mode = 3
