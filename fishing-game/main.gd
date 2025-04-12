@@ -67,9 +67,11 @@ func open_fishing_library() -> void:
 
 func close_fishing_library() -> void:
 	self.get_node("FishLibraryNode").visible = false;
+	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("FishLibrary").grab_focus();
 
 func open_rules() -> void:
 	self.get_node("RulesNode").visible = true;
 
 func close_rules() -> void:
 	self.get_node("RulesNode").visible = false;
+	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("Rules").grab_focus();

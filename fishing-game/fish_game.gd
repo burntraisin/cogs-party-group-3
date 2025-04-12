@@ -1,7 +1,7 @@
 #full game controller
 
 extends Node2D
-var plr_count = 1;
+var plr_count = 2;
 var timer_status = 0;
 var scores = {
 	"Player 1" = 0,
@@ -54,6 +54,7 @@ func setup(player_data: Array[RefCounted]) -> void:
 
 	for i in player_data.size():
 		players["Player" + str(i+1)].get_node("guy").modulate = player_data[i].color;
+		players["Player" + str(i+1)].get_node("CharacterBody2D").modulate = player_data[i].color;
 		players["Player" + str(i+1)].show;
 		stats["Player" + str(i+1)].show;
 
@@ -125,8 +126,11 @@ func _on_time_remaining_timeout():
 	timer.text = "[center] And the winner is... [/center]";
 	await get_tree().create_timer(3).timeout;
 
+func close_the_game_button():
+	close_the_game.emit();
+
 func _on_player_1_send_score_to_main(score) -> void:
 	scores["Player 1"] = score;
 
-func close_the_game_button():
-	close_the_game.emit();
+func _on_player_2_send_score_to_main(score) -> void:
+	scores["Player 2"] = score;

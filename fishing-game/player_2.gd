@@ -3,8 +3,8 @@ extends Control
 
 var data = LibraryData.new();
 var current_score = 0;
-const plr_id = 1;
-const device_id = 0;
+const plr_id = 2;
+const device_id = 1;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
