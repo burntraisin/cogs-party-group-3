@@ -1,7 +1,7 @@
 #full game controller
 
 extends Node2D
-var plr_count;
+var plr_count = 1;
 var timer_status = 0;
 var scores = {
 	"Player 1" = 0,

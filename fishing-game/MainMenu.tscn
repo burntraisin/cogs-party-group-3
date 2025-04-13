@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="2_fp0in"]
-[ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="3_iunwc"]
 [ext_resource type="Texture2D" uid="uid://xumlwfxganji" path="res://fish_eyes.png" id="3_w8msq"]
 [ext_resource type="FontFile" uid="uid://clth83xq7v4ev" path="res://Marimpa.ttf" id="4_0grwj"]
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://arrow.png" id="4_orxcf"]
+[ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="5_ko174"]
+[ext_resource type="Texture2D" uid="uid://i5keolbesqxx" path="res://crosshair.webp" id="6_wka23"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkp4"]
 bg_color = Color(0.25098, 0.678431, 0.215686, 1)
-
-[sub_resource type="Theme" id="Theme_3nhuq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81gaj"]
 bg_color = Color(0.25098, 0.678431, 0.215686, 1)
@@ -351,7 +350,6 @@ offset_top = 90.0
 offset_right = 1719.0
 offset_bottom = 121.0
 scale = Vector2(3.24, 3.24)
-theme = SubResource("Theme_3nhuq")
 text = "X"
 
 [node name="RulesNode" type="Node2D" parent="."]
@@ -415,7 +413,26 @@ theme_override_constants/margin_right = 50
 
 [node name="TextureRect" type="TextureRect" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_iunwc")
+texture = ExtResource("5_ko174")
+expand_mode = 2
+
+[node name="FishSprite" type="Sprite2D" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer/MarginContainer"]
+modulate = Color(0.207843, 0.580392, 0.898039, 1)
+position = Vector2(145, 99)
+scale = Vector2(0.796875, 0.796875)
+texture = ExtResource("3_w8msq")
+flip_h = true
+
+[node name="FishSprite2" type="Sprite2D" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer/MarginContainer"]
+modulate = Color(0.898039, 0.67451, 0.227451, 1)
+position = Vector2(539, 253)
+scale = Vector2(0.796875, 0.796875)
+texture = ExtResource("3_w8msq")
+
+[node name="FishSprite3" type="Sprite2D" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer/MarginContainer"]
+position = Vector2(348, 180)
+scale = Vector2(0.362723, 0.362723)
+texture = ExtResource("6_wka23")
 
 [node name="Label2" type="Label" parent="RulesNode/MainMenuContainer/MarginContainer/VBoxContainer/MainContainer/VBoxContainer"]
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
@@ -423,7 +440,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_0grwj")
 theme_override_font_sizes/font_size = 35
-text = "Use the left joystick to aim your hook. Once you are ready,  cast it into the water. If you successfully captured a fish, be ready to reel it in. If not, try again!"
+text = "Use the left joystick to aim your hook. Once you are ready,  cast it into the water. If you successfully capture a fish, be ready to reel it in. If not, try again!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -546,5 +563,5 @@ offset_top = 90.0
 offset_right = 1719.0
 offset_bottom = 121.0
 scale = Vector2(3.24, 3.24)
-theme = SubResource("Theme_3nhuq")
+theme_override_font_sizes/font_size = 20
 text = "X"

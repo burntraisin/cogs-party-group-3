@@ -25,7 +25,7 @@ MinigameManager="*res://minigame_manager.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -33,7 +33,9 @@ project/assembly_name="Fishing Game"
 
 [gui]
 
+theme/default_font_hinting=2
 theme/default_font_subpixel_positioning=0
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
