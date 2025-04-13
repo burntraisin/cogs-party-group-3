@@ -11,8 +11,9 @@ func _ready() -> void:
 	buttons.get_node("Rules").pressed.connect(open_rules);
 	self.get_node("RulesNode").get_node("Close").pressed.connect(close_rules);
 	buttons.get_node("StartGame").pressed.connect(start_the_game);
-
 	buttons.get_node("StartGame").grab_focus();
+
+	MinigameManager.game_started.connect(game_started_func)
 
 func _input(event: InputEvent) -> void:
 	var buttons = self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons");
@@ -36,21 +37,20 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	pass;
 
-func _on_minigame_manager_game_started(player_data_array: Array[RefCounted]) -> void:	
+func game_started_func(player_data_array):	
 	data_array = player_data_array;
-	print("hello")
 
 func start_the_game() -> void:
 	var game_scene = preload("res://FishGame.tscn");
 	var game = game_scene.instantiate();
 
-	if data_array:
-		game.setup(data_array);
-
 	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartGame").text = "Loading...";
 	await get_tree().create_timer(3).timeout;
 	
 	self.add_child(game);
+	if data_array:
+		game.setup(data_array);
+
 	game.visible = true;
 	self.get_node("MenuNode").visible = false;
 	self.get_node("FishLibraryNode").visible = false;
@@ -58,6 +58,7 @@ func start_the_game() -> void:
 	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartGame").text = "Start Game";
 
 	await game.controller();
+	MinigameManager.end_game();
 	self.get_node("MenuNode").visible = true;
 	self.get_node("MenuNode").get_node("MainMenuContainer").get_node("HBoxContainer").get_node("RightSide").get_node("MarginContainer").get_node("Buttons").get_node("StartGame").grab_focus();
 	game.queue_free();

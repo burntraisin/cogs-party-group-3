@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c43vi20226y8j"]
+[gd_scene load_steps=12 format=3 uid="uid://c43vi20226y8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
-[ext_resource type="Script" path="res://minigame_manager.gd" id="2_2pu14"]
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="2_fp0in"]
 [ext_resource type="Texture2D" uid="uid://b6sxwcmebsqwq" path="res://icon.svg" id="3_iunwc"]
 [ext_resource type="Texture2D" uid="uid://xumlwfxganji" path="res://fish_eyes.png" id="3_w8msq"]
@@ -115,9 +114,6 @@ focus_previous = NodePath("../Rules")
 theme_override_fonts/font = ExtResource("2_fp0in")
 theme_override_font_sizes/font_size = 75
 text = "Fish Library"
-
-[node name="MinigameManager" type="Node" parent="."]
-script = ExtResource("2_2pu14")
 
 [node name="FishLibraryNode" type="Node2D" parent="."]
 visible = false
@@ -552,5 +548,3 @@ offset_bottom = 121.0
 scale = Vector2(3.24, 3.24)
 theme = SubResource("Theme_3nhuq")
 text = "X"
-
-[connection signal="game_started" from="MinigameManager" to="." method="_on_minigame_manager_game_started"]

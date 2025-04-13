@@ -8,7 +8,7 @@ const device_id = 1;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
-var pos_change = 10;
+var pos_change = 20;
 
 signal stop_fishing_button();
 signal send_score_to_main(score);
@@ -138,9 +138,11 @@ func run_fishing() -> void:
 	self.get_node("FishResult").visible = true;
 	self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught a " + selected_rarity + " [/center]"
 	self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center]" + selected_fish + "![/center]";
+	player.get_node("CharacterBody2D").visible = false;
 
 	await get_tree().create_timer(3).timeout;
 
+	player.get_node("CharacterBody2D").visible = true;
 	self.get_node("FishResult").visible = false;
 	is_run_fishing_running = false;
 

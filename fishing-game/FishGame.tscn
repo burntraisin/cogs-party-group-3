@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=25 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -11,6 +11,8 @@
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="7_mk04g"]
 [ext_resource type="FontFile" uid="uid://clth83xq7v4ev" path="res://Marimpa.ttf" id="8_1nxeq"]
 [ext_resource type="Script" path="res://player_2.gd" id="10_boexo"]
+[ext_resource type="Script" path="res://player_3.gd" id="11_xkj16"]
+[ext_resource type="Script" path="res://player_4.gd" id="12_8hg0b"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
 
@@ -166,6 +168,34 @@ position = Vector2(322, 612)
 texture = ExtResource("4_nn62s")
 flip_v = true
 
+[node name="guy" type="TextureRect" parent="Player/Player3"]
+offset_left = -64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 192.0
+rotation = -1.5708
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("5_a3xxp")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player/Player3"]
+top_level = true
+position = Vector2(600, 690)
+scale = Vector2(1.6, 1.6)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player3/CharacterBody2D"]
+position = Vector2(42.1971, 77.0759)
+scale = Vector2(2.8, 2.8)
+shape = SubResource("RectangleShape2D_hhlnb")
+
+[node name="TextureRect" type="TextureRect" parent="Player/Player3/CharacterBody2D"]
+offset_top = 35.0
+offset_right = 420.0
+offset_bottom = 455.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_dg1ye")
+
 [node name="Player2" type="Sprite2D" parent="Player"]
 position = Vector2(883, 65)
 texture = ExtResource("4_nn62s")
@@ -204,6 +234,35 @@ position = Vector2(883, 612)
 texture = ExtResource("4_nn62s")
 flip_h = true
 flip_v = true
+
+[node name="guy" type="TextureRect" parent="Player/Player4"]
+offset_left = 64.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+rotation = 1.5708
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("5_a3xxp")
+flip_h = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player/Player4"]
+top_level = true
+position = Vector2(1180, 690)
+scale = Vector2(1.6, 1.6)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player4/CharacterBody2D"]
+position = Vector2(42.1971, 77.0759)
+scale = Vector2(2.8, 2.8)
+shape = SubResource("RectangleShape2D_hhlnb")
+
+[node name="TextureRect" type="TextureRect" parent="Player/Player4/CharacterBody2D"]
+offset_top = 35.0
+offset_right = 420.0
+offset_bottom = 455.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_dg1ye")
 
 [node name="Stats" type="Node2D" parent="."]
 
@@ -337,6 +396,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Player2" type="Control" parent="Stats"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1514.0
@@ -433,9 +493,9 @@ offset_bottom = 483.0
 [node name="FishResult" type="PanelContainer" parent="Stats/Player2"]
 visible = false
 layout_mode = 0
-offset_left = 38.0
+offset_left = -342.0
 offset_top = 134.0
-offset_right = 738.0
+offset_right = 358.0
 offset_bottom = 314.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xe2sy")
 
@@ -456,6 +516,269 @@ fit_content = true
 scroll_active = false
 
 [node name="FishResult" type="RichTextLabel" parent="Stats/Player2/FishResult/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Fish Name[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Player3" type="Control" parent="Stats"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 540.0
+offset_right = 406.0
+offset_bottom = 1080.0
+script = ExtResource("11_xkj16")
+
+[node name="Name" type="RichTextLabel" parent="Stats/Player3"]
+layout_mode = 0
+offset_right = 254.0
+offset_bottom = 53.0
+scale = Vector2(1.6, 1.6)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center] Player 3 [/center]"
+scroll_active = false
+
+[node name="Score" type="RichTextLabel" parent="Stats/Player3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 501.0
+offset_right = 256.0
+offset_bottom = 530.0
+scale = Vector2(1.6, 1.6)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "     Coins: 0
+"
+scroll_active = false
+
+[node name="ArrowStart" type="TextureRect" parent="Stats/Player3"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 522.0
+offset_right = 389.0
+offset_bottom = 600.0
+rotation = 3.14159
+texture = ExtResource("3_2iydp")
+expand_mode = 1
+
+[node name="ProgressBar" type="PanelContainer" parent="Stats/Player3"]
+layout_mode = 1
+offset_left = 105.0
+offset_top = 98.0
+offset_right = 199.0
+offset_bottom = 491.0
+scale = Vector2(1.0033, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7lhr")
+
+[node name="RarityHolder" type="VBoxContainer" parent="Stats/Player3/ProgressBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Common" type="Panel" parent="Stats/Player3/ProgressBar/RarityHolder"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Rare" type="Panel" parent="Stats/Player3/ProgressBar/RarityHolder"]
+modulate = Color(0.207087, 0.581242, 0.89822, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Epic" type="Panel" parent="Stats/Player3/ProgressBar/RarityHolder"]
+modulate = Color(0.76204, 0.361323, 0.865161, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Legendary" type="Panel" parent="Stats/Player3/ProgressBar/RarityHolder"]
+modulate = Color(0.899351, 0.673612, 0.228508, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="ArrowPosition" type="Panel" parent="Stats/Player3"]
+visible = false
+layout_mode = 0
+offset_left = 199.0
+offset_top = 482.0
+offset_right = 200.0
+offset_bottom = 483.0
+
+[node name="FishResult" type="PanelContainer" parent="Stats/Player3"]
+visible = false
+layout_mode = 0
+offset_left = 38.0
+offset_top = 134.0
+offset_right = 738.0
+offset_bottom = 314.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xe2sy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/Player3/FishResult"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Stats/Player3/FishResult/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center] You caught a Common [/center]"
+fit_content = true
+scroll_active = false
+
+[node name="FishResult" type="RichTextLabel" parent="Stats/Player3/FishResult/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Fish Name[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Player4" type="Control" parent="Stats"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1514.0
+offset_top = 540.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("12_8hg0b")
+
+[node name="Name" type="RichTextLabel" parent="Stats/Player4"]
+layout_mode = 0
+offset_right = 254.0
+offset_bottom = 53.0
+scale = Vector2(1.6, 1.6)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center] Player 4 [/center]"
+scroll_active = false
+
+[node name="Score" type="RichTextLabel" parent="Stats/Player4"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 501.0
+offset_right = 256.0
+offset_bottom = 530.0
+scale = Vector2(1.6, 1.6)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "     Coins: 0
+"
+scroll_active = false
+
+[node name="ArrowStart" type="TextureRect" parent="Stats/Player4"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 522.0
+offset_right = 389.0
+offset_bottom = 600.0
+rotation = 3.14159
+texture = ExtResource("3_2iydp")
+expand_mode = 1
+
+[node name="ProgressBar" type="PanelContainer" parent="Stats/Player4"]
+layout_mode = 1
+offset_left = 105.0
+offset_top = 98.0
+offset_right = 199.0
+offset_bottom = 491.0
+scale = Vector2(1.0033, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7lhr")
+
+[node name="RarityHolder" type="VBoxContainer" parent="Stats/Player4/ProgressBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Common" type="Panel" parent="Stats/Player4/ProgressBar/RarityHolder"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Rare" type="Panel" parent="Stats/Player4/ProgressBar/RarityHolder"]
+modulate = Color(0.207087, 0.581242, 0.89822, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Epic" type="Panel" parent="Stats/Player4/ProgressBar/RarityHolder"]
+modulate = Color(0.76204, 0.361323, 0.865161, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="Legendary" type="Panel" parent="Stats/Player4/ProgressBar/RarityHolder"]
+modulate = Color(0.899351, 0.673612, 0.228508, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_n42xn")
+
+[node name="ArrowPosition" type="Panel" parent="Stats/Player4"]
+visible = false
+layout_mode = 0
+offset_left = 199.0
+offset_top = 482.0
+offset_right = 200.0
+offset_bottom = 483.0
+
+[node name="FishResult" type="PanelContainer" parent="Stats/Player4"]
+visible = false
+layout_mode = 0
+offset_left = -342.0
+offset_top = 134.0
+offset_right = 358.0
+offset_bottom = 314.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xe2sy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/Player4/FishResult"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Stats/Player4/FishResult/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
+theme_override_fonts/normal_font = ExtResource("7_mk04g")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center] You caught a Common [/center]"
+fit_content = true
+scroll_active = false
+
+[node name="FishResult" type="RichTextLabel" parent="Stats/Player4/FishResult/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.25098, 0.678431, 0.215686, 1)
@@ -551,7 +874,7 @@ scroll_active = false
 tab_size = 24
 
 [node name="TimeRemaining" type="Timer" parent="Stats"]
-wait_time = 181.0
+wait_time = 20.0
 one_shot = true
 
 [node name="Results" type="Node2D" parent="."]
@@ -656,12 +979,22 @@ size_flags_horizontal = 3
 
 [connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
 [connection signal="add_score" from="." to="Stats/Player2" method="_on_game_add_score"]
+[connection signal="add_score" from="." to="Stats/Player3" method="_on_game_add_score"]
+[connection signal="add_score" from="." to="Stats/Player4" method="_on_game_add_score"]
 [connection signal="remove_score" from="." to="Stats/Player1" method="_on_game_remove_score"]
 [connection signal="remove_score" from="." to="Stats/Player2" method="_on_game_remove_score"]
+[connection signal="remove_score" from="." to="Stats/Player3" method="_on_game_remove_score"]
+[connection signal="remove_score" from="." to="Stats/Player4" method="_on_game_remove_score"]
 [connection signal="start_fishing" from="." to="Stats/Player1" method="_on_game_start_fishing"]
 [connection signal="start_fishing" from="." to="Stats/Player2" method="_on_game_start_fishing"]
+[connection signal="start_fishing" from="." to="Stats/Player3" method="_on_game_start_fishing"]
+[connection signal="start_fishing" from="." to="Stats/Player4" method="_on_game_start_fishing"]
 [connection signal="stop_fishing" from="." to="Stats/Player1" method="_on_game_stop_fishing"]
 [connection signal="stop_fishing" from="." to="Stats/Player2" method="_on_game_stop_fishing"]
+[connection signal="stop_fishing" from="." to="Stats/Player3" method="_on_game_stop_fishing"]
+[connection signal="stop_fishing" from="." to="Stats/Player4" method="_on_game_stop_fishing"]
 [connection signal="send_score_to_main" from="Stats/Player1" to="." method="_on_player_1_send_score_to_main"]
 [connection signal="send_score_to_main" from="Stats/Player2" to="." method="_on_player_2_send_score_to_main"]
+[connection signal="send_score_to_main" from="Stats/Player3" to="." method="_on_player_3_send_score_to_main"]
+[connection signal="send_score_to_main" from="Stats/Player4" to="." method="_on_player_4_send_score_to_main"]
 [connection signal="timeout" from="Stats/TimeRemaining" to="." method="_on_time_remaining_timeout"]

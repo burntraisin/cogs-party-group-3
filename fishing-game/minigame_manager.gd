@@ -39,7 +39,7 @@ const DUMMY_SAVE_DATA: Dictionary = {
 	],
 	"games": [
 		{
-			"name": "Fishing Game",
+			"name": "Fishing Frenzy",
 			"results": [
 				{
 					"player1": 0,

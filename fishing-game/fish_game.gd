@@ -1,7 +1,7 @@
 #full game controller
 
 extends Node2D
-var plr_count = 2;
+var plr_count;
 var timer_status = 0;
 var scores = {
 	"Player 1" = 0,
@@ -12,8 +12,8 @@ var scores = {
 
 var fish_scene = preload("res://FishGame.tscn");
 
-@onready var stats = get_node("Stats");
-@onready var players = get_node("Player");
+@onready var stats = self.get_node("Stats");
+@onready var players = self.get_node("Player");
 @onready var timer = stats.get_node("Timer").get_node("PanelContainer").get_node("Name");
 @onready var highest = stats.get_node("CurrentLeader").get_node("PanelContainer").get_node("Name");
 
@@ -49,14 +49,14 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_pressed("back_button") or Input.is_action_pressed("select_button"):
 			close_the_game.emit();
 
-func setup(player_data: Array[RefCounted]) -> void:
+func setup(player_data) -> void:
 	plr_count = player_data.size()
 
 	for i in player_data.size():
-		players["Player" + str(i+1)].get_node("guy").modulate = player_data[i].color;
-		players["Player" + str(i+1)].get_node("CharacterBody2D").modulate = player_data[i].color;
-		players["Player" + str(i+1)].show;
-		stats["Player" + str(i+1)].show;
+		players.get_node("Player" + str(i+1)).get_node("guy").modulate = player_data[i].color;
+		players.get_node("Player" + str(i+1)).get_node("CharacterBody2D").modulate = player_data[i].color;
+		players.get_node("Player" + str(i+1)).visible = true;
+		stats.get_node("Player" + str(i+1)).visible = true;
 
 func controller() -> void:
 	for n in range(5, -0, -1):	
@@ -115,8 +115,15 @@ func controller() -> void:
 		placements.get_node("ThirdPlace").visible = true;
 		placements.get_node("FourthPlace").visible = true;
 
-	results.visible = true;
-	results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("HBoxContainer").get_node("ExitToMenu").grab_focus();
+	for plr in players.get_children():
+		plr.get_node("CharacterBody2D").visible = false;
+		results.visible = true;
+		results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("HBoxContainer").get_node("ExitToMenu").grab_focus();
+	
+	var results_data = []
+	for key in sorted_scores:
+		results_data.append(MinigameManager.PlayerResultData.new(int(key.substr(6))-1, sorted_scores[key]));
+		
 	await close_the_game;
 
 func _on_time_remaining_timeout():
@@ -134,3 +141,9 @@ func _on_player_1_send_score_to_main(score) -> void:
 
 func _on_player_2_send_score_to_main(score) -> void:
 	scores["Player 2"] = score;
+
+func _on_player_3_send_score_to_main(score) -> void:
+	scores["Player 3"] = score;
+
+func _on_player_4_send_score_to_main(score) -> void:
+	scores["Player 4"] = score;
