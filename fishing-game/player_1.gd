@@ -8,7 +8,7 @@ const device_id = 0;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
-var pos_change = 20;
+var pos_change = 10;
 
 signal stop_fishing_button();
 signal send_score_to_main(score);
@@ -64,7 +64,7 @@ func _input(event: InputEvent) -> void:
 			if hook.position.x <= 1180:
 				hook.position += Vector2(pos_change, 0)
 		else:
-			if Input.is_action_pressed("select_button"):
+			if Input.is_action_just_pressed("select_button"):
 				stop_fishing_button.emit();
 		
 
@@ -109,6 +109,7 @@ func run_fishing() -> void:
 	adjust_odds(hook_rarity);
 	randomize();
 	rarity.shuffle();
+	await get_tree().process_frame;
 
 	for n in 4:
 		bar.move_child(bar.get_node(rarity[n]), n);

@@ -874,7 +874,7 @@ scroll_active = false
 tab_size = 24
 
 [node name="TimeRemaining" type="Timer" parent="Stats"]
-wait_time = 20.0
+wait_time = 181.0
 one_shot = true
 
 [node name="Results" type="Node2D" parent="."]
@@ -971,7 +971,7 @@ theme_override_fonts/font = ExtResource("7_mk04g")
 theme_override_font_sizes/font_size = 95
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_cwba0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xeopv")
-text = " Exit to Main Menu "
+text = " Exit Game "
 
 [node name="Container" type="Container" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

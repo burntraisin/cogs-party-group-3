@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.device == 0:
-		if Input.is_action_pressed("back_button") or Input.is_action_pressed("select_button"):
+		if Input.is_action_just_pressed("back_button") or Input.is_action_just_pressed("select_button"):
 			close_the_game.emit();
 
 func setup(player_data) -> void:
