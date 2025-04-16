@@ -8,7 +8,7 @@ const device_id = 3;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
-var pos_change = 10;
+var pos_change = 500;
 
 signal stop_fishing_button();
 signal send_score_to_main(score);
@@ -29,44 +29,15 @@ func _process(delta: float) -> void:
 		if !is_run_fishing_running:
 			run_fishing();
 
+		var direction = Input.get_vector("move_left4", "move_right4", "move_up4", "move_down4");
+		hook.velocity = direction * pos_change;
+		hook.move_and_slide();
+
 func _input(event: InputEvent) -> void:
-	if currently_fishing and event.device == device_id:
-		if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):
-			if hook.position.y >= 150:
-				hook.position -= Vector2(0, pos_change);
-			if hook.position.x >= 600:
-				hook.position -= Vector2(pos_change, 0)
-		elif Input.is_action_pressed("move_up") and Input.is_action_pressed("move_right"):
-			if hook.position.y >= 150:
-				hook.position -= Vector2(0, pos_change);
-			if hook.position.x <= 1180:
-				hook.position += Vector2(pos_change, 0)
-		elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_left"):
-			if hook.position.y <= 690:
-				hook.position += Vector2(0, pos_change);
-			if hook.position.x >= 600:
-				hook.position -= Vector2(pos_change, 0)
-		elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_right"):
-			if hook.position.y <= 690:
-				hook.position += Vector2(0, pos_change);
-			if hook.position.x <= 1180:
-				hook.position += Vector2(pos_change, 0)
-		elif Input.is_action_pressed("move_up"):
-			if hook.position.y >= 150:
-				hook.position -= Vector2(0, pos_change);
-		elif Input.is_action_pressed("move_down"):
-			if hook.position.y <= 690:
-				hook.position += Vector2(0, pos_change);
-		elif Input.is_action_pressed("move_left"):
-			if hook.position.x >= 600:
-				hook.position -= Vector2(pos_change, 0)
-		elif Input.is_action_pressed("move_right"):
-			if hook.position.x <= 1180:
-				hook.position += Vector2(pos_change, 0)
-		else:
-			if Input.is_action_just_pressed("select_button"):
+	if currently_fishing:
+		if Input.is_action_just_pressed("select_button4"):
 				stop_fishing_button.emit();
-		
+				return;	
 
 func _on_game_add_score(id, score) -> void:
 	if (id != plr_id):
@@ -163,11 +134,11 @@ func _on_game_stop_fishing(id:Variant) -> void:
 	self.get_node("ArrowPosition").queue_free();
 
 func hook_fish():
-	var collision = hook.move_and_collide(Vector2(0,0), true);
-	if collision:
-		var collider = collision.get_collider();
-		collider.owner.destroy_fish();
-		return collider.owner.get_rarity();
+	var collision_array = hook.get_node("Area2D").get_overlapping_bodies();
+	if collision_array:
+		var collision = collision_array[0];
+		collision.owner.destroy_fish();
+		return collision.owner.get_rarity();
 	else:
 		return "Nothing";
 

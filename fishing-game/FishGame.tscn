@@ -82,6 +82,7 @@ centered = false
 
 [node name="WaterBoundaries" type="StaticBody2D" parent="Pond" groups=["pond_edges"]]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pond/WaterBoundaries" groups=["pond_edges"]]
 position = Vector2(915, 336.875)
@@ -150,10 +151,19 @@ top_level = true
 position = Vector2(600, 150)
 scale = Vector2(1.6, 1.6)
 collision_layer = 4
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="Player/Player1/CharacterBody2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player1/CharacterBody2D/Area2D"]
+position = Vector2(42.1971, 77.0759)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player1/CharacterBody2D"]
 position = Vector2(42.1971, 77.0759)
-scale = Vector2(2.8, 2.8)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="TextureRect" type="TextureRect" parent="Player/Player1/CharacterBody2D"]
@@ -183,10 +193,20 @@ top_level = true
 position = Vector2(600, 690)
 scale = Vector2(1.6, 1.6)
 collision_layer = 4
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="Player/Player3/CharacterBody2D"]
+scale = Vector2(1, 1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player3/CharacterBody2D/Area2D"]
+position = Vector2(42.1971, 77.0759)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player3/CharacterBody2D"]
 position = Vector2(42.1971, 77.0759)
-scale = Vector2(2.8, 2.8)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="TextureRect" type="TextureRect" parent="Player/Player3/CharacterBody2D"]
@@ -216,10 +236,20 @@ top_level = true
 position = Vector2(1180, 150)
 scale = Vector2(1.6, 1.6)
 collision_layer = 4
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="Player/Player2/CharacterBody2D"]
+scale = Vector2(1, 1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player2/CharacterBody2D/Area2D"]
+position = Vector2(42.1971, 77.0759)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player2/CharacterBody2D"]
 position = Vector2(42.1971, 77.0759)
-scale = Vector2(2.8, 2.8)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="TextureRect" type="TextureRect" parent="Player/Player2/CharacterBody2D"]
@@ -251,10 +281,20 @@ top_level = true
 position = Vector2(1180, 690)
 scale = Vector2(1.6, 1.6)
 collision_layer = 4
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="Player/Player4/CharacterBody2D"]
+scale = Vector2(1, 1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player4/CharacterBody2D/Area2D"]
+position = Vector2(42.1971, 77.0759)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player4/CharacterBody2D"]
 position = Vector2(42.1971, 77.0759)
-scale = Vector2(2.8, 2.8)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hhlnb")
 
 [node name="TextureRect" type="TextureRect" parent="Player/Player4/CharacterBody2D"]

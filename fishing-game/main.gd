@@ -24,7 +24,7 @@ func _input(event: InputEvent) -> void:
 				close_rules();
 			elif self.get_node("FishLibraryNode").visible:
 				close_fishing_library();
-		elif Input.is_action_just_pressed("select_button"):
+		elif Input.is_action_just_pressed("select_button") or Input.is_action_just_pressed("select_button1"):
 			if buttons.get_node("Rules").has_focus():
 				open_rules();
 			elif buttons.get_node("FishLibrary").has_focus():
