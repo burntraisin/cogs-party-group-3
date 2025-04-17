@@ -53,6 +53,7 @@ func setup(player_data) -> void:
 	plr_count = player_data.size()
 
 	for i in player_data.size():
+		players.get_node("Player" + str(i+1)).visible = true;
 		players.get_node("Player" + str(i+1)).get_node("guy").modulate = player_data[i].color;
 		players.get_node("Player" + str(i+1)).get_node("CharacterBody2D").modulate = player_data[i].color;
 		players.get_node("Player" + str(i+1)).visible = true;

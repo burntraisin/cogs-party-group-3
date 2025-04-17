@@ -4,7 +4,6 @@ extends Control
 var data = LibraryData.new();
 var current_score = 0;
 const plr_id = 2;
-const device_id = 1;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
@@ -35,7 +34,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if currently_fishing:
-		if Input.is_action_just_pressed("select_button"):
+		if Input.is_action_just_pressed("select_button2"):
 				stop_fishing_button.emit();
 				return;	
 		
