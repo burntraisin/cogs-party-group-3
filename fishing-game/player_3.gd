@@ -4,7 +4,6 @@ extends Control
 var data = LibraryData.new();
 var current_score = 0;
 const plr_id = 3;
-const device_id = 2;
 var rarity = ["Common", "Rare", "Epic", "Legendary"];
 var currently_fishing = false;
 var is_run_fishing_running = false;
@@ -37,7 +36,6 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_just_pressed("select_button3"):
 				stop_fishing_button.emit();
 				return;	
-		
 
 func _on_game_add_score(id, score) -> void:
 	if (id != plr_id):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=24 format=3 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://cnocd4m44isdv" path="res://pond.jpg" id="1_o6fvn"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c7hxj6uolnsme" path="res://guy.png" id="5_a3xxp"]
 [ext_resource type="Texture2D" uid="uid://i5keolbesqxx" path="res://crosshair.webp" id="7_dg1ye"]
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="7_mk04g"]
-[ext_resource type="FontFile" uid="uid://clth83xq7v4ev" path="res://Marimpa.ttf" id="8_1nxeq"]
 [ext_resource type="Script" path="res://player_2.gd" id="10_boexo"]
 [ext_resource type="Script" path="res://player_3.gd" id="11_xkj16"]
 [ext_resource type="Script" path="res://player_4.gd" id="12_8hg0b"]
@@ -174,6 +173,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player3" type="Sprite2D" parent="Player"]
+visible = false
 position = Vector2(322, 612)
 texture = ExtResource("4_nn62s")
 flip_v = true
@@ -196,7 +196,6 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="Area2D" type="Area2D" parent="Player/Player3/CharacterBody2D"]
-scale = Vector2(1, 1)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player3/CharacterBody2D/Area2D"]
@@ -217,6 +216,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player2" type="Sprite2D" parent="Player"]
+visible = false
 position = Vector2(883, 65)
 texture = ExtResource("4_nn62s")
 flip_h = true
@@ -239,7 +239,6 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="Area2D" type="Area2D" parent="Player/Player2/CharacterBody2D"]
-scale = Vector2(1, 1)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player2/CharacterBody2D/Area2D"]
@@ -260,6 +259,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player4" type="Sprite2D" parent="Player"]
+visible = false
 position = Vector2(883, 612)
 texture = ExtResource("4_nn62s")
 flip_h = true
@@ -284,7 +284,6 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="Area2D" type="Area2D" parent="Player/Player4/CharacterBody2D"]
-scale = Vector2(1, 1)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player4/CharacterBody2D/Area2D"]
@@ -958,7 +957,7 @@ vertical_alignment = 1
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_fonts/font = ExtResource("7_mk04g")
 theme_override_font_sizes/font_size = 95
 text = "1st: Player 1 with 0 Coins!"
 horizontal_alignment = 1
@@ -969,7 +968,7 @@ visible = false
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_fonts/font = ExtResource("7_mk04g")
 theme_override_font_sizes/font_size = 95
 text = "2nd: Player 2 with 0 Coins!"
 horizontal_alignment = 1
@@ -980,7 +979,7 @@ visible = false
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_fonts/font = ExtResource("7_mk04g")
 theme_override_font_sizes/font_size = 95
 text = "3rd: Player 3 with 0 Coins!"
 horizontal_alignment = 1
@@ -991,7 +990,7 @@ visible = false
 modulate = Color(0.25098, 0.678431, 0.215686, 1)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("8_1nxeq")
+theme_override_fonts/font = ExtResource("7_mk04g")
 theme_override_font_sizes/font_size = 95
 text = "4th: Player 4 with 0 Coins :("
 horizontal_alignment = 1
