@@ -8,10 +8,10 @@ var fish_score = {
 };
 
 var fish_rarity = {
-	"Common" = ["Coho Salmon", "Moray Eel", "Striped Bass", "Tuna"],
-	"Rare" = ["Northern Stargazer", "African Glass Catfish",],
-	"Epic" = ["Oarfish", "Wobbegong"],
-	"Legendary" = ["Great White Shark", "Coelacanth"],
+	"Common" = ["Coho Salmon", "Moray Eel", "Striped Bass", "Prawn", "Umbrella"],
+	"Rare" = ["Northern Stargazer", "African Glass Catfish", "Sea Bream", "European Squid", "Flounder"],
+	"Epic" = ["Oarfish", "Wobbegong", "Black Marlin", "Tuna", "Scorpionfish"],
+	"Legendary" = ["Great White Shark", "Coelacanth", "Humpback Whale", "Dolphin", "Treasure Chest"],
 };
 
 var fish_odds = {

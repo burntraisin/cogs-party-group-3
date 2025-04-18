@@ -189,6 +189,9 @@ theme_override_font_sizes/font_size = 40
 text = "
 Great White Shark
 Coelacanth
+Treasure Chest
+Dolphin
+Humpback Whale
 
 "
 horizontal_alignment = 1
@@ -237,6 +240,9 @@ theme_override_font_sizes/font_size = 40
 text = "
 Oarfish
 Wobbegong
+Tuna
+Black Marlin
+Scorpionfish
  "
 horizontal_alignment = 1
 
@@ -284,6 +290,9 @@ theme_override_font_sizes/font_size = 40
 text = "
 Northern Stargazer
 African Glass Catfish
+Sea Bream
+European Squid
+Flounder
  "
 horizontal_alignment = 1
 
@@ -332,7 +341,8 @@ text = "
 Coho Salmon
 Moray Eel
 Striped Bass
-Tuna
+Prawn
+Umbrella
  "
 horizontal_alignment = 1
 
