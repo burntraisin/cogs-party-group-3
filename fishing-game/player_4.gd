@@ -66,14 +66,16 @@ func run_fishing() -> void:
 	texture.position = Vector2(294, 522);
 
 	await stop_fishing_button;
+	player.get_node("CharacterBody2D").visible = false;
 	var hook_rarity = hook_fish();
 	if hook_rarity == "Nothing":
 		self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught [/center]"
 		self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center] Nothing : ( [/center]";
 		self.get_node("FishResult").visible = true;
-		await get_tree().create_timer(3).timeout;
+		await get_tree().create_timer(2).timeout;
 		self.get_node("FishResult").visible = false;
 		is_run_fishing_running = false;
+		player.get_node("CharacterBody2D").visible = true;
 		return;
 
 	adjust_odds(hook_rarity);
@@ -106,12 +108,11 @@ func run_fishing() -> void:
 	var selected_fish = data.fish_rarity[selected_rarity].pick_random();
 	_on_game_add_score(plr_id, data.fish_score[selected_rarity]);
 
-	player.get_node("CharacterBody2D").visible = false;
 	self.get_node("FishResult").visible = true;
 	self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught a " + selected_rarity + " [/center]"
 	self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center]" + selected_fish + "![/center]";
 
-	await get_tree().create_timer(3).timeout;
+	await get_tree().create_timer(2).timeout;
 
 	player.get_node("CharacterBody2D").visible = true;
 	self.get_node("FishResult").visible = false;
