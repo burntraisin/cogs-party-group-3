@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://arrow.png" id="3_2iydp"]
 [ext_resource type="Texture2D" uid="uid://bnqiywb2kbeum" path="res://water.png" id="3_8d4in"]
 [ext_resource type="Script" path="res://player_1.gd" id="3_pi2lh"]
-[ext_resource type="Texture2D" uid="uid://kbtxas7dirdy" path="res://boat.png" id="4_nn62s"]
+[ext_resource type="Texture2D" uid="uid://b5icuvau7ysb1" path="res://boat2.png" id="4_2ru2j"]
 [ext_resource type="Texture2D" uid="uid://c7hxj6uolnsme" path="res://guy.png" id="5_a3xxp"]
 [ext_resource type="Texture2D" uid="uid://i5keolbesqxx" path="res://crosshair.webp" id="7_dg1ye"]
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="7_mk04g"]
@@ -15,7 +15,7 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ree2q"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vh0qa"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8qk0"]
 texture = ExtResource("3_8d4in")
 texture_region_size = Vector2i(64, 64)
 0:0/animation_columns = 4
@@ -25,9 +25,9 @@ texture_region_size = Vector2i(64, 64)
 0:0/animation_frame_3/duration = 0.4
 0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_05geo"]
+[sub_resource type="TileSet" id="TileSet_crxah"]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_vh0qa")
+sources/0 = SubResource("TileSetAtlasSource_j8qk0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as14a"]
 size = Vector2(66.2496, 28.3082)
@@ -90,7 +90,7 @@ script = ExtResource("2_4o6vf")
 position = Vector2(255, 0)
 scale = Vector2(0.985, 0.985)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAABAAoAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAACAAkAAAAAAAAAAAACAAoAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAAKAAoAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_05geo")
+tile_set = SubResource("TileSet_crxah")
 
 [node name="WaterBoundaries" type="StaticBody2D" parent="Pond" groups=["pond_edges"]]
 collision_layer = 2
@@ -147,7 +147,8 @@ scale = Vector2(1.6, 1.6)
 
 [node name="Player1" type="Sprite2D" parent="Player"]
 position = Vector2(322, 65)
-texture = ExtResource("4_nn62s")
+rotation = -0.785398
+texture = ExtResource("4_2ru2j")
 
 [node name="guy" type="TextureRect" parent="Player/Player1"]
 offset_left = -64.0
@@ -186,9 +187,9 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player3" type="Sprite2D" parent="Player"]
-visible = false
 position = Vector2(322, 612)
-texture = ExtResource("4_nn62s")
+rotation = 0.785398
+texture = ExtResource("4_2ru2j")
 flip_v = true
 
 [node name="guy" type="TextureRect" parent="Player/Player3"]
@@ -229,10 +230,9 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player2" type="Sprite2D" parent="Player"]
-visible = false
 position = Vector2(883, 65)
-texture = ExtResource("4_nn62s")
-flip_h = true
+rotation = 0.785398
+texture = ExtResource("4_2ru2j")
 
 [node name="guy" type="TextureRect" parent="Player/Player2"]
 offset_left = -64.0
@@ -272,9 +272,9 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player4" type="Sprite2D" parent="Player"]
-visible = false
 position = Vector2(883, 612)
-texture = ExtResource("4_nn62s")
+rotation = -0.785398
+texture = ExtResource("4_2ru2j")
 flip_h = true
 flip_v = true
 
