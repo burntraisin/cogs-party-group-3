@@ -188,6 +188,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player3" type="Sprite2D" parent="Player"]
+visible = false
 position = Vector2(322, 612)
 rotation = 0.785398
 texture = ExtResource("4_2ru2j")
@@ -230,6 +231,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player2" type="Sprite2D" parent="Player"]
+visible = false
 position = Vector2(883, 65)
 rotation = 0.785398
 texture = ExtResource("4_2ru2j")
@@ -273,6 +275,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_dg1ye")
 
 [node name="Player4" type="Sprite2D" parent="Player"]
+visible = false
 position = Vector2(883, 612)
 rotation = -0.785398
 texture = ExtResource("4_2ru2j")
