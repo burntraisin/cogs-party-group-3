@@ -1,34 +1,34 @@
 { "frames": {
    "water 0.aseprite": {
-    "frame": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "frame": { "x": 0, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
-    "sourceSize": { "w": 16, "h": 16 },
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
     "duration": 300
    },
    "water 1.aseprite": {
-    "frame": { "x": 16, "y": 0, "w": 16, "h": 16 },
+    "frame": { "x": 64, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
-    "sourceSize": { "w": 16, "h": 16 },
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
     "duration": 300
    },
    "water 2.aseprite": {
-    "frame": { "x": 32, "y": 0, "w": 16, "h": 16 },
+    "frame": { "x": 128, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
-    "sourceSize": { "w": 16, "h": 16 },
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
     "duration": 300
    },
    "water 3.aseprite": {
-    "frame": { "x": 48, "y": 0, "w": 16, "h": 16 },
+    "frame": { "x": 192, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
-    "sourceSize": { "w": 16, "h": 16 },
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
     "duration": 300
    }
  },
@@ -37,16 +37,7 @@
   "version": "1.3-rc6-dev",
   "image": "water.png",
   "format": "RGBA8888",
-  "size": { "w": 64, "h": 16 },
-  "scale": "1",
-  "frameTags": [
-  ],
-  "layers": [
-   { "name": "water", "opacity": 255, "blendMode": "normal" },
-   { "name": "deep water", "opacity": 255, "blendMode": "normal" },
-   { "name": "lines", "opacity": 255, "blendMode": "normal" }
-  ],
-  "slices": [
-  ]
+  "size": { "w": 256, "h": 64 },
+  "scale": "1"
  }
 }
