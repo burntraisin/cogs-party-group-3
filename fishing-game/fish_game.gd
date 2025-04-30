@@ -120,10 +120,25 @@ func controller() -> void:
 		plr.get_node("CharacterBody2D").visible = false;
 		results.visible = true;
 		results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("HBoxContainer").get_node("ExitToMenu").grab_focus();
+
+	if plr_count == 1:
+		sorted_scores.erase("Player 2")
+		sorted_scores.erase("Player 3")
+		sorted_scores.erase("Player 4")
+	elif plr_count == 2:
+		sorted_scores.erase("Player 3")
+		sorted_scores.erase("Player 4")
+	elif plr_count == 3: 
+		sorted_scores.erase("Player 4")
+	
+	print(sorted_scores)
 	
 	var results_data = []
 	for key in sorted_scores:
 		results_data.append(MinigameManager.PlayerResultData.new(int(key.substr(6))-1, sorted_scores[key]));
+	
+	print(results_data)
+	MinigameManager.apply_results(results_data);
 		
 	await close_the_game;
 

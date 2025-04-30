@@ -66,6 +66,7 @@ bg_color = Color(1, 1, 1, 1)
 script = ExtResource("1_wrrex")
 
 [node name="MenuNode" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="MenuNode"]
 offset_right = 1920.0
@@ -153,6 +154,7 @@ text = "Fish Library"
 
 [node name="FishLibraryNode" type="Node2D" parent="."]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="MainMenuContainer" type="MarginContainer" parent="FishLibraryNode"]
 offset_right = 1920.0
@@ -401,6 +403,7 @@ text = "X"
 
 [node name="RulesNode" type="Node2D" parent="."]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="MainMenuContainer" type="MarginContainer" parent="RulesNode"]
 offset_right = 1920.0
