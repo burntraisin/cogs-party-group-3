@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://r7l43syej6x"]
+[gd_scene load_steps=33 format=4 uid="uid://r7l43syej6x"]
 
 [ext_resource type="Script" path="res://fish_game.gd" id="1_d3qom"]
 [ext_resource type="Texture2D" uid="uid://16tecv3yr8u" path="res://grass.png" id="2_0bwwf"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" path="res://player_2.gd" id="10_boexo"]
 [ext_resource type="Script" path="res://player_3.gd" id="11_xkj16"]
 [ext_resource type="Script" path="res://player_4.gd" id="12_8hg0b"]
+[ext_resource type="AudioStream" uid="uid://dcfy6i3r4ea0q" path="res://fishmusic.mp3" id="14_42457"]
+[ext_resource type="AudioStream" uid="uid://bjctndqdx2vir" path="res://start.mp3" id="15_lji8r"]
+[ext_resource type="AudioStream" uid="uid://x7ks2xug2ssk" path="res://end.mp3" id="16_6ygsm"]
+[ext_resource type="AudioStream" uid="uid://ufxcc5pbdt6k" path="res://results.mp3" id="17_8wwuu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agsvs"]
 texture = ExtResource("2_0bwwf")
@@ -1048,6 +1052,22 @@ text = " Exit Game "
 [node name="Container" type="Container" parent="Results/MainMenuContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_42457")
+volume_db = 5.0
+
+[node name="StartMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_lji8r")
+volume_db = 5.0
+
+[node name="EndMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_6ygsm")
+volume_db = 5.0
+
+[node name="ResultsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_8wwuu")
+volume_db = 5.0
 
 [connection signal="add_score" from="." to="Stats/Player1" method="_on_game_add_score"]
 [connection signal="add_score" from="." to="Stats/Player2" method="_on_game_add_score"]

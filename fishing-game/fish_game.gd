@@ -60,14 +60,14 @@ func setup(player_data) -> void:
 		stats.get_node("Player" + str(i+1)).visible = true;
 
 func controller() -> void:
-	for n in range(5, -0, -1):	
+	self.get_node("StartMusic").play();
+	for n in range(3, -0, -1):	
 		timer.text = "[center] " + str(n) + "... [/center]";
 		await get_tree().create_timer(1).timeout;
 
-	timer.text = "[center] Get Ready... [/center]";
-	await get_tree().create_timer(1).timeout;
 	timer.text = "[center] GO!!! [/center]";
 	await get_tree().create_timer(1).timeout;
+	self.get_node("GameMusic").play();
 	stats.get_node("TimeRemaining").start();
 	timer_status = 1;
 
@@ -75,12 +75,14 @@ func controller() -> void:
 		start_fishing.emit(n);
 
 	await stats.get_node("TimeRemaining").timeout;
+	self.get_node("GameMusic").stop();
+	self.get_node("EndMusic").play();
 	print("Time's up!");
 
 	for n in range(1, plr_count + 1):
 		stop_fishing.emit(n);
 
-	await get_tree().create_timer(6).timeout;
+	await get_tree().create_timer(5).timeout;
 
 	var results = self.get_node("Results");
 	var placements = results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer");
@@ -116,9 +118,9 @@ func controller() -> void:
 		placements.get_node("ThirdPlace").visible = true;
 		placements.get_node("FourthPlace").visible = true;
 
+	results.visible = true;
 	for plr in players.get_children():
 		plr.get_node("CharacterBody2D").visible = false;
-		results.visible = true;
 		results.get_node("MainMenuContainer").get_node("MarginContainer").get_node("VBoxContainer").get_node("HBoxContainer").get_node("ExitToMenu").grab_focus();
 
 	if plr_count == 1:
@@ -139,6 +141,7 @@ func controller() -> void:
 	
 	print(results_data)
 	MinigameManager.apply_results(results_data);
+	play_result_music();
 		
 	await close_the_game;
 
@@ -163,3 +166,9 @@ func _on_player_3_send_score_to_main(score) -> void:
 
 func _on_player_4_send_score_to_main(score) -> void:
 	scores["Player 4"] = score;
+
+func play_result_music() -> void:
+	self.get_node("ResultsMusic").play()
+	await get_tree().create_timer(25).timeout;
+	var tween = get_tree().create_tween();
+	tween.tween_property(self.get_node("ResultsMusic"), "volume_db", -80, 5)

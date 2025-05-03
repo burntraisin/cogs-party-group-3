@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c43vi20226y8j"]
+[gd_scene load_steps=20 format=4 uid="uid://c43vi20226y8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wrrex"]
 [ext_resource type="FontFile" uid="uid://chr1vkhpw6yla" path="res://Super Lobster.ttf" id="2_fp0in"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbihk1n4lphjw" path="res://arrow.png" id="4_orxcf"]
 [ext_resource type="Texture2D" uid="uid://bnqiywb2kbeum" path="res://water.png" id="4_qx2e4"]
 [ext_resource type="Texture2D" uid="uid://i5keolbesqxx" path="res://crosshair.webp" id="6_wka23"]
+[ext_resource type="AudioStream" uid="uid://x73p5lcgrf78" path="res://menu.mp3" id="7_ri6ef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkp4"]
 bg_color = Color(0.25098, 0.678431, 0.215686, 1)
@@ -616,3 +617,8 @@ offset_bottom = 121.0
 scale = Vector2(3.24, 3.24)
 theme_override_font_sizes/font_size = 20
 text = "X"
+
+[node name="MenuAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ri6ef")
+volume_db = 5.0
+autoplay = true
