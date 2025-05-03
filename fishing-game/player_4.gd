@@ -72,7 +72,7 @@ func run_fishing() -> void:
 		self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught [/center]"
 		self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center] Nothing : ( [/center]";
 		self.get_node("FishResult").visible = true;
-		await get_tree().create_timer(2).timeout;
+		await get_tree().create_timer(1).timeout;
 		self.get_node("FishResult").visible = false;
 		is_run_fishing_running = false;
 		player.get_node("CharacterBody2D").visible = true;
@@ -112,7 +112,7 @@ func run_fishing() -> void:
 	self.get_node("FishResult").get_node("VBoxContainer").get_node("Name").text = "[center] You caught a " + selected_rarity + " [/center]"
 	self.get_node("FishResult").get_node("VBoxContainer").get_node("FishResult").text = "[center]" + selected_fish + "![/center]";
 
-	await get_tree().create_timer(2).timeout;
+	await get_tree().create_timer(1).timeout;
 
 	player.get_node("CharacterBody2D").visible = true;
 	self.get_node("FishResult").visible = false;
